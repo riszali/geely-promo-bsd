@@ -179,15 +179,6 @@
 
             <!-- Konten Teks di bagian atas section -->
             <div class="relative z-20 w-full max-w-7xl mx-auto px-6 text-center">
-                <div class="inline-flex items-center gap-3 mb-6 px-5 py-2.5 rounded-full border border-cyan-500/30 bg-cyan-500/10 backdrop-blur-xl reveal-up shadow-[0_0_30px_rgba(34,211,238,0.2)]">
-                    <span class="relative flex h-2 w-2">
-                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                        <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-500 shadow-[0_0_10px_rgba(34,211,238,1)]"></span>
-                    </span>
-                    <span class="text-cyan-300 text-[9px] md:text-[11px] tracking-[0.4em] font-bold uppercase drop-shadow-md">Exterior Design</span>
-                </div>
-
-                <!-- Text size set to 2xl-5xl with max-w-4xl to ensure 2 lines -->
                 <h1 class="font-geely text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white uppercase leading-[1.1] tracking-tighter drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)] mb-4 reveal-up delay-100 max-w-4xl mx-auto">
                     SEE HOW <span class="text-liquid">INNOVATION</span> <br> FUELS EVERY JOURNEY
                 </h1>
