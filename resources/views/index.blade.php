@@ -410,7 +410,7 @@
                             </video>
                             <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent"></div>
                             <div class="absolute bottom-20 lg:bottom-8 left-6 lg:left-8 pr-6">
-                                <span class="text-pink-400 text-[10px] tracking-[0.3em] font-bold uppercase block mb-2">Flyme Auto</span>
+                                <span class="text-pink-400 text-[10px] tracking-[0.3em] font-bold uppercase block mb-2">Geely EX5</span>
                                 <h4 class="font-geely text-2xl md:text-4xl uppercase tracking-tight text-white leading-none">Future in Motion.</h4>
                             </div>
                         </div>
