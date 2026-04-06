@@ -14,9 +14,9 @@
 
             <!-- Menu Desktop -->
             <div class="hidden lg:flex space-x-10 items-center">
-                <a href="{{ route('home') }}" class="font-geely text-[11px] font-bold tracking-[0.2em] text-gray-800 hover:text-blue-600 transition-colors uppercase relative group">
+                <a href="{{ route('home') }}" class="font-geely text-[11px] font-bold tracking-[0.2em] text-gray-800 hover:text-pink-600 transition-colors uppercase relative group">
                     Discover
-                    <span class="absolute -bottom-2 left-1/2 w-0 h-[2px] bg-blue-600 group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
+                    <span class="absolute -bottom-2 left-1/2 w-0 h-[2px] bg-pink-500 group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
                 </a>
                 
                 @php
@@ -47,35 +47,35 @@
 
                 @foreach($models as $model)
                 <div class="relative group cursor-pointer py-6">
-                    <a href="{{ $model['url'] }}" class="flex items-center font-geely text-[11px] font-bold tracking-[0.2em] text-gray-800 group-hover:text-blue-600 transition-colors uppercase relative">
+                    <a href="{{ $model['url'] }}" class="flex items-center font-geely text-[11px] font-bold tracking-[0.2em] text-gray-800 group-hover:text-pink-600 transition-colors uppercase relative">
                         {{ $model['name'] }}
-                        <svg class="ml-1 w-4 h-4 transform group-hover:-rotate-180 transition-transform duration-500 text-gray-400 group-hover:text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                        <span class="absolute -bottom-2 left-1/2 w-0 h-[2px] bg-blue-600 group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
+                        <svg class="ml-1 w-4 h-4 transform group-hover:-rotate-180 transition-transform duration-500 text-gray-400 group-hover:text-pink-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        <span class="absolute -bottom-2 left-1/2 w-0 h-[2px] bg-pink-500 group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
                     </a>
                     
-                    <div class="absolute left-1/2 -translate-x-1/2 top-full mt-0 w-56 bg-white/70 backdrop-blur-3xl shadow-[0_20px_50px_rgba(0,0,0,0.15)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 border border-white/60 rounded-2xl overflow-hidden transform translate-y-4 group-hover:translate-y-0">
+                    <div class="absolute left-1/2 -translate-x-1/2 top-full mt-0 w-56 bg-white/90 backdrop-blur-3xl shadow-[0_20px_50px_rgba(236,72,153,0.1)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 border border-pink-100 rounded-2xl overflow-hidden transform translate-y-4 group-hover:translate-y-0">
                         <div class="relative z-10 py-3">
-                            <a href="{{ $model['exterior_url'] }}" class="block px-6 py-3 text-[10px] font-bold text-gray-600 hover:bg-white/80 hover:text-blue-600 uppercase tracking-[0.2em] transition-all duration-300 hover:pl-8">Exterior</a>
-                            <a href="{{ $model['interior_url'] }}" class="block px-6 py-3 text-[10px] font-bold text-gray-600 hover:bg-white/80 hover:text-blue-600 uppercase tracking-[0.2em] transition-all duration-300 hover:pl-8">Interior</a>
-                            <a href="{{ $model['specs_url'] }}" class="block px-6 py-3 text-[10px] font-bold text-gray-600 hover:bg-white/80 hover:text-blue-600 uppercase tracking-[0.2em] transition-all duration-300 hover:pl-8">Specification</a>
+                            <a href="{{ $model['exterior_url'] }}" class="block px-6 py-3 text-[10px] font-bold text-gray-600 hover:bg-pink-50 hover:text-pink-600 uppercase tracking-[0.2em] transition-all duration-300 hover:pl-8">Exterior</a>
+                            <a href="{{ $model['interior_url'] }}" class="block px-6 py-3 text-[10px] font-bold text-gray-600 hover:bg-pink-50 hover:text-pink-600 uppercase tracking-[0.2em] transition-all duration-300 hover:pl-8">Interior</a>
+                            <a href="{{ $model['specs_url'] }}" class="block px-6 py-3 text-[10px] font-bold text-gray-600 hover:bg-pink-50 hover:text-pink-600 uppercase tracking-[0.2em] transition-all duration-300 hover:pl-8">Specification</a>
                         </div>
                     </div>
                 </div>
                 @endforeach
 
                 <!-- Link Contact Desktop -->
-                <a href="{{ route('contact') }}" class="font-geely text-[11px] font-bold tracking-[0.2em] text-gray-800 hover:text-blue-600 transition-colors uppercase relative group">
+                <a href="{{ route('contact') }}" class="font-geely text-[11px] font-bold tracking-[0.2em] text-gray-800 hover:text-pink-600 transition-colors uppercase relative group">
                     Contact
-                    <span class="absolute -bottom-2 left-1/2 w-0 h-[2px] bg-blue-600 group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
+                    <span class="absolute -bottom-2 left-1/2 w-0 h-[2px] bg-pink-500 group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
                 </a>
             </div>
 
             <div class="hidden lg:flex items-center space-x-8">
-                <a href="{{ route('test-drive') }}" class="font-geely text-[11px] font-bold tracking-[0.2em] text-gray-800 hover:text-blue-600 transition-colors uppercase relative group">
+                <a href="{{ route('test-drive') }}" class="font-geely text-[11px] font-bold tracking-[0.2em] text-gray-800 hover:text-pink-600 transition-colors uppercase relative group">
                     Test Drive
-                    <span class="absolute -bottom-2 left-1/2 w-0 h-[2px] bg-blue-600 group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
+                    <span class="absolute -bottom-2 left-1/2 w-0 h-[2px] bg-pink-500 group-hover:w-full group-hover:left-0 transition-all duration-300"></span>
                 </a>
-                <a href="{{ route('credit-simulation') }}" class="relative overflow-hidden group font-geely bg-blue-600 text-white px-8 py-3.5 rounded-full text-[10px] font-bold tracking-[0.2em] transition-all duration-500 shadow-[0_10px_20px_rgba(37,99,235,0.3)] hover:shadow-[0_15px_30px_rgba(37,99,235,0.5)] hover:-translate-y-1 uppercase">
+                <a href="{{ route('credit-simulation') }}" class="relative overflow-hidden group font-geely bg-pink-500 text-white px-8 py-3.5 rounded-full text-[10px] font-bold tracking-[0.2em] transition-all duration-500 shadow-[0_10px_20px_rgba(236,72,153,0.3)] hover:shadow-[0_15px_30px_rgba(236,72,153,0.5)] hover:-translate-y-1 uppercase">
                     <span class="relative z-10 flex items-center gap-2">
                         Credit Simulations
                         <svg class="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
@@ -85,7 +85,7 @@
 
             <!-- Mobile Menu Button (Animated X) -->
             <div class="flex items-center lg:hidden relative z-[60]">
-                <button id="mobile-menu-btn" class="relative w-11 h-11 flex flex-col items-center justify-center gap-[4px] focus:outline-none z-[60] bg-white/40 backdrop-blur-xl border border-white/60 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.08)] hover:bg-white/60 transition-all duration-300">
+                <button id="mobile-menu-btn" class="relative w-11 h-11 flex flex-col items-center justify-center gap-[4px] focus:outline-none z-[60] bg-white/40 backdrop-blur-xl border border-white/60 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.08)] hover:bg-white/80 transition-all duration-300">
                     <span id="line-1" class="w-5 h-[2px] bg-gray-800 rounded-full transition-all duration-400 ease-in-out transform origin-center"></span>
                     <span id="line-2" class="w-5 h-[2px] bg-gray-800 rounded-full transition-all duration-300 ease-in-out transform origin-center"></span>
                     <span id="line-3" class="w-5 h-[2px] bg-gray-800 rounded-full transition-all duration-400 ease-in-out transform origin-center"></span>
@@ -95,74 +95,74 @@
     </div>
 </nav>
 
-<!-- Background Blur Overlay (Dipindah ke Luar Nav agar bisa Full Screen) -->
-<div id="mobile-overlay" class="fixed inset-0 w-full h-full bg-slate-900/30 backdrop-blur-xl z-[45] opacity-0 pointer-events-none transition-all duration-500 ease-in-out lg:hidden"></div>
+<!-- Background Blur Overlay -->
+<div id="mobile-overlay" class="fixed inset-0 w-full h-full bg-slate-900/30 backdrop-blur-sm z-[45] opacity-0 pointer-events-none transition-all duration-500 ease-in-out lg:hidden"></div>
 
-<!-- BALANCED BLACK/GREEN/WHITE GLASSMORPHISM MOBILE MENU (Dipindah ke Luar Nav) -->
-<div id="mobile-menu" class="fixed top-24 right-4 left-4 sm:left-auto sm:w-[380px] bg-black/90 backdrop-blur-[40px] backdrop-saturate-[1.5] z-[55] opacity-0 pointer-events-none transition-all duration-400 ease-[cubic-bezier(0.3,0,0,1)] flex flex-col justify-start p-5 pb-12 lg:hidden overflow-hidden border border-white/20 rounded-[2rem] shadow-[0_30px_60px_rgba(0,0,0,0.4)] scale-95 origin-top sm:origin-top-right">
+<!-- LIGHT/PINK GLASSMORPHISM MOBILE MENU -->
+<div id="mobile-menu" class="fixed top-24 right-4 left-4 sm:left-auto sm:w-[380px] bg-white/95 backdrop-blur-[40px] backdrop-saturate-[1.5] z-[55] opacity-0 pointer-events-none transition-all duration-400 ease-[cubic-bezier(0.3,0,0,1)] flex flex-col justify-start p-5 pb-12 lg:hidden overflow-hidden border border-pink-100 rounded-[2rem] shadow-[0_30px_60px_rgba(236,72,153,0.15)] scale-95 origin-top sm:origin-top-right">
     
     <!-- Decorative Orbs for Glass Effect -->
-    <div class="absolute -top-10 -right-10 w-40 h-40 bg-emerald-500/20 rounded-full blur-[50px] pointer-events-none"></div>
-    <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-white/10 rounded-full blur-[50px] pointer-events-none"></div>
+    <div class="absolute -top-10 -right-10 w-40 h-40 bg-pink-400/20 rounded-full blur-[50px] pointer-events-none"></div>
+    <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-pink-200/30 rounded-full blur-[50px] pointer-events-none"></div>
 
     <div id="mobile-menu-content" class="relative z-10 flex flex-col space-y-4 transform translate-y-6 transition-transform duration-500 ease-out delay-75">
         <!-- Home Link -->
-        <a href="{{ route('home') }}" class="font-geely text-lg font-bold tracking-widest text-white uppercase flex items-center justify-between group px-1">
+        <a href="{{ route('home') }}" class="font-geely text-lg font-bold tracking-widest text-gray-900 uppercase flex items-center justify-between group px-1">
             <span>Home</span>
-            <span class="w-7 h-7 rounded-full bg-white/10 backdrop-blur-md border border-white/10 flex items-center justify-center text-white group-hover:bg-emerald-500 group-hover:border-emerald-400 group-hover:text-black transition-all duration-300 shadow-[0_4px_15px_rgba(0,0,0,0.1)]">
+            <span class="w-7 h-7 rounded-full bg-pink-50 backdrop-blur-md border border-pink-100 flex items-center justify-center text-pink-500 group-hover:bg-pink-500 group-hover:border-pink-400 group-hover:text-white transition-all duration-300 shadow-sm">
                 <svg class="w-3.5 h-3.5 transform group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
             </span>
         </a>
         
         <!-- Separator Line -->
-        <div class="h-[1px] w-full bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+        <div class="h-[1px] w-full bg-gradient-to-r from-transparent via-pink-200 to-transparent"></div>
         
         <div class="space-y-3">
-            <p class="text-[11px] font-bold tracking-[0.3em] text-gray-400 uppercase mb-2 px-1">Our Lineup</p>
+            <p class="text-[11px] font-bold tracking-[0.3em] text-pink-500 uppercase mb-2 px-1">Our Lineup</p>
             
             @foreach($models as $model)
-            <!-- Black Glass Hover Card - BALANCED -->
-            <div class="bg-white/5 hover:bg-white/10 backdrop-blur-lg border border-white/10 hover:border-emerald-500/50 rounded-[1.5rem] p-3.5 transition-all duration-300 group shadow-[0_4px_20px_rgba(0,0,0,0.1)]">
+            <!-- White/Pink Glass Hover Card -->
+            <div class="bg-white/80 hover:bg-pink-50/80 backdrop-blur-lg border border-gray-100 hover:border-pink-300 rounded-[1.5rem] p-3.5 transition-all duration-300 group shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
                 <a href="{{ $model['url'] }}" class="flex justify-between items-center mb-3 px-1">
-                    <span class="font-geely text-base font-bold tracking-widest text-white uppercase group-hover:text-emerald-400 transition-colors">{{ $model['name'] }}</span>
-                    <div class="w-7 h-7 rounded-full bg-black/40 backdrop-blur-sm flex items-center justify-center text-white border border-white/10 group-hover:text-black group-hover:bg-emerald-500 group-hover:border-emerald-400 group-hover:shadow-[0_0_10px_rgba(16,185,129,0.5)] transition-all duration-300">
+                    <span class="font-geely text-base font-bold tracking-widest text-gray-900 uppercase group-hover:text-pink-600 transition-colors">{{ $model['name'] }}</span>
+                    <div class="w-7 h-7 rounded-full bg-pink-50 backdrop-blur-sm flex items-center justify-center text-pink-500 border border-pink-100 group-hover:text-white group-hover:bg-pink-500 group-hover:border-pink-400 group-hover:shadow-[0_4px_10px_rgba(236,72,153,0.3)] transition-all duration-300">
                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </div>
                 </a>
                 
-                <!-- Capsule Buttons - BALANCED -->
+                <!-- Capsule Buttons -->
                 <div class="flex gap-2">
-                    <a href="{{ $model['exterior_url'] }}" class="py-2 px-2 rounded-xl bg-black/40 border border-white/10 text-[10px] font-bold text-gray-300 hover:text-black hover:bg-emerald-500 hover:border-emerald-400 uppercase tracking-widest flex-1 text-center transition-all duration-300">Exterior</a>
-                    <a href="{{ $model['interior_url'] }}" class="py-2 px-2 rounded-xl bg-black/40 border border-white/10 text-[10px] font-bold text-gray-300 hover:text-black hover:bg-emerald-500 hover:border-emerald-400 uppercase tracking-widest flex-1 text-center transition-all duration-300">Interior</a>
-                    <a href="{{ $model['specs_url'] }}" class="py-2 px-2 rounded-xl bg-black/40 border border-white/10 text-[10px] font-bold text-gray-300 hover:text-black hover:bg-emerald-500 hover:border-emerald-400 uppercase tracking-widest flex-1 text-center transition-all duration-300">Specs</a>
+                    <a href="{{ $model['exterior_url'] }}" class="py-2 px-2 rounded-xl bg-white border border-gray-200 text-[10px] font-bold text-gray-500 hover:text-white hover:bg-pink-500 hover:border-pink-500 uppercase tracking-widest flex-1 text-center transition-all duration-300 shadow-sm">Exterior</a>
+                    <a href="{{ $model['interior_url'] }}" class="py-2 px-2 rounded-xl bg-white border border-gray-200 text-[10px] font-bold text-gray-500 hover:text-white hover:bg-pink-500 hover:border-pink-500 uppercase tracking-widest flex-1 text-center transition-all duration-300 shadow-sm">Interior</a>
+                    <a href="{{ $model['specs_url'] }}" class="py-2 px-2 rounded-xl bg-white border border-gray-200 text-[10px] font-bold text-gray-500 hover:text-white hover:bg-pink-500 hover:border-pink-500 uppercase tracking-widest flex-1 text-center transition-all duration-300 shadow-sm">Specs</a>
                 </div>
             </div>
             @endforeach
         </div>
         
         <!-- Separator Line -->
-        <div class="h-[1px] w-full bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+        <div class="h-[1px] w-full bg-gradient-to-r from-transparent via-pink-200 to-transparent"></div>
         
         <!-- Test Drive Link -->
-        <a href="{{ route('test-drive') }}" class="font-geely text-lg font-bold tracking-widest text-white uppercase flex items-center justify-between group px-1">
+        <a href="{{ route('test-drive') }}" class="font-geely text-lg font-bold tracking-widest text-gray-900 uppercase flex items-center justify-between group px-1">
             <span>Test Drive</span>
-            <span class="w-7 h-7 rounded-full bg-white/10 backdrop-blur-md border border-white/10 flex items-center justify-center text-white group-hover:bg-emerald-500 group-hover:border-emerald-400 group-hover:text-black transition-all duration-300 shadow-[0_4px_15px_rgba(0,0,0,0.1)]">
+            <span class="w-7 h-7 rounded-full bg-pink-50 backdrop-blur-md border border-pink-100 flex items-center justify-center text-pink-500 group-hover:bg-pink-500 group-hover:border-pink-400 group-hover:text-white transition-all duration-300 shadow-sm">
                 <svg class="w-3.5 h-3.5 transform group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
             </span>
         </a>
 
         <!-- Contact Link Mobile -->
-        <a href="{{ route('contact') }}" class="font-geely text-lg font-bold tracking-widest text-white uppercase flex items-center justify-between group px-1">
+        <a href="{{ route('contact') }}" class="font-geely text-lg font-bold tracking-widest text-gray-900 uppercase flex items-center justify-between group px-1">
             <span>Contact</span>
-            <span class="w-7 h-7 rounded-full bg-white/10 backdrop-blur-md border border-white/10 flex items-center justify-center text-white group-hover:bg-emerald-500 group-hover:border-emerald-400 group-hover:text-black transition-all duration-300 shadow-[0_4px_15px_rgba(0,0,0,0.1)]">
+            <span class="w-7 h-7 rounded-full bg-pink-50 backdrop-blur-md border border-pink-100 flex items-center justify-center text-pink-500 group-hover:bg-pink-500 group-hover:border-pink-400 group-hover:text-white transition-all duration-300 shadow-sm">
                 <svg class="w-3.5 h-3.5 transform group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
             </span>
         </a>
     </div>
 
     <div id="mobile-menu-footer" class="relative z-10 mt-8 transform translate-y-6 transition-transform duration-500 ease-out delay-150">
-        <!-- Glassy Green CTA Button - BALANCED -->
-        <a href="{{ route('credit-simulation') }}" class="w-full flex items-center justify-center gap-2 bg-emerald-500/90 backdrop-blur-xl border border-emerald-400/50 text-black py-3.5 rounded-2xl font-geely text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 shadow-[0_4px_15px_rgba(16,185,129,0.2)] hover:shadow-[0_8px_20px_rgba(16,185,129,0.3)] hover:bg-emerald-400 hover:-translate-y-0.5">
+        <!-- Glassy Pink CTA Button -->
+        <a href="{{ route('credit-simulation') }}" class="w-full flex items-center justify-center gap-2 bg-pink-500/90 backdrop-blur-xl border border-pink-400/50 text-white py-3.5 rounded-2xl font-geely text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 shadow-[0_4px_15px_rgba(236,72,153,0.2)] hover:shadow-[0_8px_20px_rgba(236,72,153,0.3)] hover:bg-pink-400 hover:-translate-y-0.5">
             Credit Simulation 
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
         </a>
@@ -196,11 +196,17 @@
                 overlay.classList.replace('opacity-100', 'opacity-0');
                 overlay.classList.add('pointer-events-none');
                 
-                // Animasi X kembali ke Hamburger
+                // Animasi X kembali ke Hamburger (Warna kembali ke abu-abu gelap)
                 line1.classList.remove('translate-y-[6px]', 'rotate-45');
+                line1.classList.replace('bg-pink-500', 'bg-gray-800');
+                
                 line2.classList.remove('opacity-0', 'scale-x-0');
+                line2.classList.replace('bg-pink-500', 'bg-gray-800');
+                
                 line3.classList.remove('-translate-y-[6px]', '-rotate-45');
-                btn.classList.remove('bg-white');
+                line3.classList.replace('bg-pink-500', 'bg-gray-800');
+                
+                btn.classList.remove('bg-pink-50', 'border-pink-300');
                 
                 document.body.style.overflow = '';
                 
@@ -222,11 +228,17 @@
                 overlay.classList.replace('opacity-0', 'opacity-100');
                 overlay.classList.remove('pointer-events-none');
                 
-                // Animasi Hamburger berubah menjadi X
+                // Animasi Hamburger berubah menjadi X (Warna berubah jadi pink)
                 line1.classList.add('translate-y-[6px]', 'rotate-45');
+                line1.classList.replace('bg-gray-800', 'bg-pink-500');
+                
                 line2.classList.add('opacity-0', 'scale-x-0');
+                line2.classList.replace('bg-gray-800', 'bg-pink-500');
+                
                 line3.classList.add('-translate-y-[6px]', '-rotate-45');
-                btn.classList.add('bg-white');
+                line3.classList.replace('bg-gray-800', 'bg-pink-500');
+                
+                btn.classList.add('bg-pink-50', 'border-pink-300');
                 
                 document.body.style.overflow = 'hidden';
                 
