@@ -49,7 +49,7 @@
             
             <div class="col-span-2 lg:col-span-4 flex flex-col lg:pr-12">
                 <h4 class="text-xs tracking-[0.3em] mb-8 uppercase text-cyan-400 font-bold glow-cyan-footer">
-                    Geely Fatmawati <span class="text-white">/</span> Drive the Future.
+                    Promo Geely BSD <span class="text-white">/</span> Drive the Future.
                 </h4>
                 
                 <p class="text-gray-400 text-[11px] leading-relaxed uppercase tracking-[0.2em] font-light mb-8 max-w-xs">
@@ -122,7 +122,7 @@
 
             <div class="flex flex-col items-center gap-4">
                 <p class="text-[10px] text-gray-500 uppercase tracking-[0.3em] font-medium">
-                    &copy; 2026 Geely Fatmawati. All Rights Reserved.
+                    &copy; 2026 Promo Geely BSD. All Rights Reserved.
                 </p>
 
                 <div class="flex items-center gap-3 group">
