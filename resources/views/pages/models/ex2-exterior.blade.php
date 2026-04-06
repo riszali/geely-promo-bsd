@@ -3,18 +3,18 @@
         <title>Eksterior Geely EX2 2025 | Desain Crossover Listrik Futuristik</title>
         <meta name="description" content="Jelajahi setiap detail eksterior Geely EX2. Desain pemenang penghargaan dengan pencahayaan LED cerdas dan proporsi Golden Ratio. Lihat tampilan 360 derajat di sini.">
         <meta name="keywords" content="Geely EX2 Eksterior, Desain Geely EX2, Mobil Listrik Urban, Crossover EV Geely, 360 Geely EX2, Geely Fatmawati">
-        <link rel="canonical" href="https://geelyfatmawati.id/models/ex2/exterior">
+        <link rel="canonical" href="https://promogeely.id/models/ex2/exterior">
 
         <!-- Open Graph / Facebook / WhatsApp -->
         <meta property="og:type" content="website">
-        <meta property="og:url" content="https://geelyfatmawati.id/models/ex2/exterior">
+        <meta property="og:url" content="https://promogeely.id/models/ex2/exterior">
         <meta property="og:title" content="Eksterior Geely EX2 2024 | Desain Crossover Listrik Futuristik">
         <meta property="og:description" content="Jelajahi setiap detail eksterior Geely EX2. Desain pemenang penghargaan dengan pencahayaan LED cerdas dan proporsi Golden Ratio.">
         <meta property="og:image" content="https://assets.zyrosite.com/Yle46KEPN6IkVONg/banner_ex2b-Rcl937dqFR7EP4xN.jpg">
 
         <!-- Twitter -->
         <meta property="twitter:card" content="summary_large_image">
-        <meta property="twitter:url" content="https://geelyfatmawati.id/models/ex2/exterior">
+        <meta property="twitter:url" content="https://promogeely.id/models/ex2/exterior">
         <meta property="twitter:title" content="Eksterior Geely EX2 2024 | Crossover Listrik Futuristik">
         <meta property="twitter:description" content="Jelajahi setiap detail eksterior Geely EX2. Desain pemenang penghargaan dengan pencahayaan cerdas.">
         <meta property="twitter:image" content="https://assets.zyrosite.com/Yle46KEPN6IkVONg/banner_ex2b-Rcl937dqFR7EP4xN.jpg">

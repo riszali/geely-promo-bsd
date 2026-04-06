@@ -5,19 +5,19 @@
     @push('head')
         <title>Harga & Spesifikasi Geely EX2 2024 Jakarta | Crossover Listrik Modern</title>
         <meta name="description" content="Temukan Geely EX2, crossover listrik stylish dengan jarak tempuh 395km. Harga promo mulai Rp 229 Juta hanya di Dealer Resmi Geely Fatmawati Jakarta Selatan. Cek spesifikasi lengkap di sini!">
-        <meta name="keywords" content="Geely EX2, Harga Geely EX2, Mobil Listrik Murah Jakarta, Crossover EV Jakarta, Geely Fatmawati, Promo Mobil Geely 2024, Spesifikasi Geely EX2 Indonesia">
-        <link rel="canonical" href="https://geelyfatmawati.id/models/ex2">
+        <meta name="keywords" content="Geely EX2, Harga Geely EX2, Mobil Listrik Murah Jakarta, Crossover EV Jakarta, promo geely, Promo Mobil Geely 2024, Spesifikasi Geely EX2 Indonesia">
+        <link rel="canonical" href="https://promogeely.id/models/ex2">
         
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content="product">
-        <meta property="og:url" content="https://geelyfatmawati.id/models/ex2">
+        <meta property="og:url" content="https://promogeely.id/models/ex2">
         <meta property="og:title" content="Geely EX2: Crossover Listrik Cerdas Harga Mulai 229 Juta | Geely Fatmawati">
         <meta property="og:description" content="Bawa pulang Geely EX2 dengan fitur ADAS lengkap dan desain pemenang award. Kunjungi showroom Geely Fatmawati hari ini.">
         <meta property="og:image" content="https://assets.zyrosite.com/Yle46KEPN6IkVONg/banner_ex2b-Rcl937dqFR7EP4xN.jpg">
 
         <!-- Twitter -->
         <meta property="twitter:card" content="summary_large_image">
-        <meta property="twitter:title" content="Harga Geely EX2 2024 - Dealer Resmi Jakarta Selatan">
+        <meta property="twitter:title" content="Harga Geely EX2 2024 - promo geely BSD">
         <meta property="twitter:image" content="https://assets.zyrosite.com/Yle46KEPN6IkVONg/banner_ex2b-Rcl937dqFR7EP4xN.jpg">
     @endpush
 

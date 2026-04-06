@@ -127,7 +127,7 @@
 
                 <div class="flex items-center gap-3 group">
                     <p class="text-[10px] uppercase tracking-[0.3em] text-gray-300">powered by   |</p>
-                    <a href="https://lundorimagine.com" target="_blank" class="block transform transition-transform group-hover:scale-105">
+                    <a href="https://wa.me/6282110946254" target="_blank" class="block transform transition-transform group-hover:scale-105">
                         <img class="h-5 md:h-6 w-auto opacity-100 group-hover:opacity-100 transition-all duration-500 sharp-img-footer hover:drop-shadow-[0_0_10px_rgba(255,255,255,0.4)]" 
                              src="https://assets.zyrosite.com/Yle46KEPN6IkVONg/logo-pink-ma7HGZGFFvICMzRH.png" 
                              alt="Lund'or Imagine Digital">
