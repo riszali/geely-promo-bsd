@@ -61,7 +61,7 @@
                         <!-- Menambahkan flex-shrink-0 dan mengubah ukuran menjadi w-5 h-5 -->
                         <svg class="w-5 h-5 flex-shrink-0 text-gray-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                         <p class="text-gray-500 text-[10px] leading-relaxed uppercase tracking-widest">
-                            Jl. RS. Fatmawati Raya No.40 Blok 2, RT.2/RW.5, Cilandak Bar., Kec. Cilandak, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12430
+                            Kav. Commercial de Park, Jl. Boulevard Utara No.lot 2 no.17, Lengkong Wetan, Kec. Pagedangan, Kabupaten Tangerang, Banten 15331
                         </p>
                     </div>
                     <div class="flex items-center gap-4 group">
