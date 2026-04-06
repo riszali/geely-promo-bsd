@@ -11,8 +11,8 @@
       "@@type": "AutoDealer",
       "name": "Geely BSD - Eusdama Geely Premium",
       "image": "https://assets.zyrosite.com/Yle46KEPN6IkVONg/azs02470-VCvpUDL4Xo3Qi0iF.JPG",
-      "@@id": "https://geelyfatmawati.id/contact",
-      "url": "https://geelyfatmawati.id/contact",
+      "@@id": "https://promogeely.id/contact",
+      "url": "https://promogeely.id/contact",
       "telephone": "+6282246666904",
       "address": {
         "@@type": "PostalAddress",
