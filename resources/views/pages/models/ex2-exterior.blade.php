@@ -2,7 +2,7 @@
     @push('head')
         <title>Eksterior Geely EX2 2025 | Desain Crossover Listrik Futuristik</title>
         <meta name="description" content="Jelajahi setiap detail eksterior Geely EX2. Desain pemenang penghargaan dengan pencahayaan LED cerdas dan proporsi Golden Ratio. Lihat tampilan 360 derajat di sini.">
-        <meta name="keywords" content="Geely EX2 Eksterior, Desain Geely EX2, Mobil Listrik Urban, Crossover EV Geely, 360 Geely EX2, Geely Fatmawati">
+        <meta name="keywords" content="Geely EX2 Eksterior, Desain Geely EX2, Mobil Listrik Urban, Crossover EV Geely, 360 Geely EX2, Geely bsd, Geely Tangerang, Mobil Listrik BSD, SUV Geely">
         <link rel="canonical" href="https://promogeely.id/models/ex2/exterior">
 
         <!-- Open Graph / Facebook / WhatsApp -->
