@@ -1,0 +1,37 @@
+@import "tailwindcss";
+
+/* Memuat Font Resmi Geely */
+@font-face {
+    font-family: 'GeelyBrand';
+    src: url('https://assets.zyrosite.com/Yle46KEPN6IkVONg/GEELY Bold Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    /* Brand Colors Geely */
+    --color-geely-blue: #00529b;
+    --color-geely-dark: #121212;
+    --color-geely-silver: #f5f5f7;
+    --color-geely-accent: #00a0e9;
+
+    /* Font Configuration */
+    --font-geely: 'GeelyBrand', ui-sans-serif, system-ui;
+}
+
+@layer base {
+    body {
+        @apply bg-white text-geely-dark selection:bg-geely-blue selection:text-white;
+        font-family: ui-sans-serif, system-ui, sans-serif;
+    }
+    
+    h1, h2, h3, .font-geely {
+        font-family: var(--font-geely);
+    }
+}

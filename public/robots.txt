@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Mencegah bot mengindeks halaman internal/admin jika ada nantinya
+Disallow: /admin
+Disallow: /login
+
+# Memberitahu Google lokasi sitemap dinamis kita
+Sitemap: https://geelyfatmawati.id/sitemap.xml
