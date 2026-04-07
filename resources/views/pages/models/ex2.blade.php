@@ -159,12 +159,12 @@
                 <div class="flex flex-col sm:flex-row items-stretch sm:items-center p-2 sm:p-1.5 md:p-2 bg-white/70 border border-pink-100 backdrop-blur-2xl rounded-3xl sm:rounded-full shadow-lg mb-8 w-full max-w-xs sm:max-w-max reveal-up delay-100 gap-2 sm:gap-0">
                     <div class="px-6 py-3 md:py-4 flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2">
                         <span class="text-gray-500 text-[9px] font-bold tracking-[0.3em] uppercase">PRO</span>
-                        <span class="font-geely text-lg md:text-xl text-gray-900 tracking-tight whitespace-nowrap">Rp 229.900.000</span>
+                        <span class="font-geely text-lg md:text-xl text-gray-900 tracking-tight whitespace-nowrap">Rp 239.900.000</span>
                     </div>
                     <div class="hidden sm:block w-[1px] h-8 bg-gray-200 mx-2"></div>
                     <div class="px-6 py-3 md:py-4 flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-2 bg-pink-50 rounded-2xl sm:rounded-full border border-pink-200">
                         <span class="text-pink-600 text-[9px] font-bold tracking-[0.3em] uppercase">MAX</span>
-                        <span class="font-geely text-lg md:text-xl text-gray-900 tracking-tight whitespace-nowrap">Rp 259.900.000</span>
+                        <span class="font-geely text-lg md:text-xl text-gray-900 tracking-tight whitespace-nowrap">Rp 269.900.000</span>
                     </div>
                 </div>
 
