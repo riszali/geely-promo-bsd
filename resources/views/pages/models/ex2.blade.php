@@ -290,8 +290,8 @@
                     </p>
                 </div>
 
-                <div class="relative reveal-up delay-200 w-full">
-                    <div class="flex gap-6 overflow-x-auto no-scrollbar snap-x-mandatory pb-10 cursor-grab active:cursor-grabbing">
+                <div class="relative reveal-up delay-200 w-full flex justify-center">
+                    <div class="flex gap-6 overflow-x-auto no-scrollbar snap-x-mandatory pb-10 cursor-grab active:cursor-grabbing w-fit max-w-full">
                         
                         <div class="min-w-[85vw] md:min-w-[450px] snap-center">
                             <div class="glass-island bg-gray-50 border-gray-200 rounded-[2.5rem] p-2 h-full group img-container flex flex-col">
