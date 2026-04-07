@@ -227,54 +227,7 @@
         </div>
     </header>
 
-    <!-- SECTION PROMO SLIDESHOW -->
-    <section class="py-12 md:py-16 bg-[#f8fafc] relative overflow-hidden border-b border-gray-100 z-10">
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] ambient-glow-pink opacity-30 pointer-events-none z-0"></div>
-        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 relative z-10 reveal-up">
-            
-            <div class="relative w-full rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-[0_20px_50px_-15px_rgba(236,72,153,0.2)] border border-white/50 bg-white/70 backdrop-blur-xl group">
-                <!-- Carousel Container -->
-                <div id="promo-carousel" class="flex w-full transition-transform duration-700 cubic-bezier(0.25, 1, 0.5, 1)">
-                    <!-- Slide 1 -->
-                    <div class="w-full flex-shrink-0 relative aspect-[4/3] sm:aspect-[16/9] md:aspect-[21/9] lg:aspect-[3/1] bg-transparent flex items-center justify-center overflow-hidden cursor-pointer" onclick="openLightbox('{{ asset('images/banner_home_02-giias2025-AMqDlZzrP2IE3z3W.png') }}', 'Promo GIIAS 2025', true)">
-                        <img src="{{ asset('images/banner_home_02-giias2025-AMqDlZzrP2IE3z3W.png') }}" class="w-full h-full object-contain object-center transform transition-transform duration-[2s] group-hover:scale-105" alt="Promo Geely BSD 1">
-                    </div>
-                    <!-- Slide 2 -->
-                    <div class="w-full flex-shrink-0 relative aspect-[4/3] sm:aspect-[16/9] md:aspect-[21/9] lg:aspect-[3/1] bg-transparent flex items-center justify-center overflow-hidden cursor-pointer" onclick="openLightbox('{{ asset('images/banner_home_03-giias2025-YX4jaE95kacp8VBO.webp') }}', 'Special Offers', true)">
-                        <img src="{{ asset('images/banner_home_03-giias2025-YX4jaE95kacp8VBO.webp') }}" class="w-full h-full object-contain object-center transform transition-transform duration-[2s] group-hover:scale-105" alt="Promo Geely BSD 2">
-                    </div>
-                    <!-- Slide 3 -->
-                    <div class="w-full flex-shrink-0 relative aspect-[4/3] sm:aspect-[16/9] md:aspect-[21/9] lg:aspect-[3/1] bg-transparent flex items-center justify-center overflow-hidden cursor-pointer" onclick="openLightbox('{{ asset('images/banner_home-promo-01-202507-YBgjeGg2pzIW7kpk.jpg') }}', 'Booking Privilege', true)">
-                        <img src="{{ asset('images/banner_home-promo-01-202507-YBgjeGg2pzIW7kpk.jpg') }}" class="w-full h-full object-contain object-center transform transition-transform duration-[2s] group-hover:scale-105" alt="Promo Geely BSD 3">
-                    </div>
-                    <!-- Slide 4 -->
-                    <div class="w-full flex-shrink-0 relative aspect-[4/3] sm:aspect-[16/9] md:aspect-[21/9] lg:aspect-[3/1] bg-transparent flex items-center justify-center overflow-hidden cursor-pointer" onclick="openLightbox('{{ asset('images/banner_home-promo-02-202507-YZ9Exv9eEyIq5184.jpg') }}', 'Exclusive Deals', true)">
-                        <img src="{{ asset('images/banner_home-promo-02-202507-YZ9Exv9eEyIq5184.jpg') }}" class="w-full h-full object-contain object-center transform transition-transform duration-[2s] group-hover:scale-105" alt="Promo Geely BSD 4">
-                    </div>
-                </div>
 
-                <!-- Gradient Overlay for Buttons -->
-                <div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-black/20 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                <div class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-black/20 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
-                <!-- Navigation Arrows -->
-                <button id="promo-prev" class="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/90 backdrop-blur-md border border-white text-pink-500 flex items-center justify-center hover:bg-pink-500 hover:text-white hover:border-pink-500 transition-all shadow-[0_5px_15px_rgba(0,0,0,0.1)] z-20 opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0">
-                    <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                </button>
-                <button id="promo-next" class="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/90 backdrop-blur-md border border-white text-pink-500 flex items-center justify-center hover:bg-pink-500 hover:text-white hover:border-pink-500 transition-all shadow-[0_5px_15px_rgba(0,0,0,0.1)] z-20 opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0">
-                    <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                </button>
-
-                <!-- Dots Indicators -->
-                <div class="absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 flex gap-2.5 z-20">
-                    <button class="promo-dot w-6 h-2 md:h-2.5 rounded-full bg-pink-500 shadow-sm transition-all duration-300"></button>
-                    <button class="promo-dot w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-white/80 hover:bg-white shadow-sm transition-all duration-300"></button>
-                    <button class="promo-dot w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-white/80 hover:bg-white shadow-sm transition-all duration-300"></button>
-                    <button class="promo-dot w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-white/80 hover:bg-white shadow-sm transition-all duration-300"></button>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- SECTION 4: LINEUP (Slider Mobile & Grid Desktop) -->
     <section id="lineup" class="py-24 lg:py-32 relative bg-white overflow-hidden border-b border-gray-100">
@@ -366,6 +319,94 @@
                 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                 Swipe to explore
             </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: PROMO SLIDESHOW -->
+    <section class="py-12 md:py-16 bg-black relative overflow-hidden border-y border-gray-900 z-10">
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[radial-gradient(circle,rgba(236,72,153,0.2)_0%,transparent_70%)] mix-blend-screen opacity-60 pointer-events-none z-0"></div>
+        <div class="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-12 relative z-10 reveal-up">
+            
+            <!-- 1. VERSI MOBILE & TABLET (Carousel Original) -->
+            <div class="block lg:hidden relative w-full rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-[0_20px_50px_-15px_rgba(0,0,0,0.8)] border border-white/10 bg-white/5 backdrop-blur-xl group">
+                <!-- Carousel Container -->
+                <div id="promo-carousel" class="flex w-full transition-transform duration-700 cubic-bezier(0.25, 1, 0.5, 1)">
+                    <!-- Slide 1 -->
+                    <div class="w-full flex-shrink-0 relative aspect-[4/3] sm:aspect-[16/9] md:aspect-[21/9] bg-transparent flex items-center justify-center overflow-hidden cursor-pointer" onclick="openLightbox('{{ asset('images/banner_home_02-giias2025-AMqDlZzrP2IE3z3W.png') }}', 'Promo GIIAS 2025', true)">
+                        <img src="{{ asset('images/banner_home_02-giias2025-AMqDlZzrP2IE3z3W.png') }}" class="w-full h-full object-contain object-center transform transition-transform duration-[2s] group-hover:scale-105" alt="Promo Geely BSD 1">
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="w-full flex-shrink-0 relative aspect-[4/3] sm:aspect-[16/9] md:aspect-[21/9] bg-transparent flex items-center justify-center overflow-hidden cursor-pointer" onclick="openLightbox('{{ asset('images/banner_home_03-giias2025-YX4jaE95kacp8VBO.webp') }}', 'Special Offers', true)">
+                        <img src="{{ asset('images/banner_home_03-giias2025-YX4jaE95kacp8VBO.webp') }}" class="w-full h-full object-contain object-center transform transition-transform duration-[2s] group-hover:scale-105" alt="Promo Geely BSD 2">
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="w-full flex-shrink-0 relative aspect-[4/3] sm:aspect-[16/9] md:aspect-[21/9] bg-transparent flex items-center justify-center overflow-hidden cursor-pointer" onclick="openLightbox('{{ asset('images/banner_home-promo-01-202507-YBgjeGg2pzIW7kpk.jpg') }}', 'Booking Privilege', true)">
+                        <img src="{{ asset('images/banner_home-promo-01-202507-YBgjeGg2pzIW7kpk.jpg') }}" class="w-full h-full object-contain object-center transform transition-transform duration-[2s] group-hover:scale-105" alt="Promo Geely BSD 3">
+                    </div>
+                    <!-- Slide 4 -->
+                    <div class="w-full flex-shrink-0 relative aspect-[4/3] sm:aspect-[16/9] md:aspect-[21/9] bg-transparent flex items-center justify-center overflow-hidden cursor-pointer" onclick="openLightbox('{{ asset('images/banner_home-promo-02-202507-YZ9Exv9eEyIq5184.jpg') }}', 'Exclusive Deals', true)">
+                        <img src="{{ asset('images/banner_home-promo-02-202507-YZ9Exv9eEyIq5184.jpg') }}" class="w-full h-full object-contain object-center transform transition-transform duration-[2s] group-hover:scale-105" alt="Promo Geely BSD 4">
+                    </div>
+                </div>
+
+                <!-- Gradient Overlay for Buttons -->
+                <div class="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-black/80 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div class="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-black/80 to-transparent pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                <!-- Navigation Arrows -->
+                <button id="promo-prev" class="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-pink-500 flex items-center justify-center hover:bg-pink-500 hover:text-white hover:border-pink-500 transition-all shadow-lg z-20 opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0">
+                    <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+                <button id="promo-next" class="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-pink-500 flex items-center justify-center hover:bg-pink-500 hover:text-white hover:border-pink-500 transition-all shadow-lg z-20 opacity-0 group-hover:opacity-100 -translate-x-4 group-hover:translate-x-0">
+                    <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+
+                <!-- Dots Indicators -->
+                <div class="absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 flex gap-2.5 z-20">
+                    <button class="promo-dot w-6 h-2 md:h-2.5 rounded-full bg-pink-500 shadow-sm transition-all duration-300"></button>
+                    <button class="promo-dot w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-white/80 hover:bg-white shadow-sm transition-all duration-300"></button>
+                    <button class="promo-dot w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-white/80 hover:bg-white shadow-sm transition-all duration-300"></button>
+                    <button class="promo-dot w-2 h-2 md:w-2.5 md:h-2.5 rounded-full bg-white/80 hover:bg-white shadow-sm transition-all duration-300"></button>
+                </div>
+            </div>
+
+            <!-- 2. VERSI DESKTOP (Grid Glassmorphism 2x2 Baru) -->
+            <div class="hidden lg:grid grid-cols-2 gap-6">
+                
+                <!-- Promo 1 -->
+                <div class="bg-white/5 backdrop-blur-xl rounded-[2.5rem] p-3 group cursor-pointer border border-white/10 shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(236,72,153,0.15)] hover:border-pink-500/50" onclick="openLightbox('{{ asset('images/banner_home_02-giias2025-AMqDlZzrP2IE3z3W.png') }}', 'Promo GIIAS 2025', true)">
+                    <div class="w-full aspect-[21/9] rounded-[2rem] overflow-hidden bg-transparent flex items-center justify-center relative">
+                        <img src="{{ asset('images/banner_home_02-giias2025-AMqDlZzrP2IE3z3W.png') }}" class="w-full h-full object-contain transform transition-transform duration-[1.5s] group-hover:scale-[1.03]" alt="Promo Geely BSD 1">
+                        <div class="absolute inset-0 bg-pink-500/0 group-hover:bg-pink-500/10 mix-blend-overlay transition-colors duration-500"></div>
+                    </div>
+                </div>
+
+                <!-- Promo 2 -->
+                <div class="bg-white/5 backdrop-blur-xl rounded-[2.5rem] p-3 group cursor-pointer border border-white/10 shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(236,72,153,0.15)] hover:border-pink-500/50" onclick="openLightbox('{{ asset('images/banner_home_03-giias2025-YX4jaE95kacp8VBO.webp') }}', 'Special Offers', true)">
+                    <div class="w-full aspect-[21/9] rounded-[2rem] overflow-hidden bg-transparent flex items-center justify-center relative">
+                        <img src="{{ asset('images/banner_home_03-giias2025-YX4jaE95kacp8VBO.webp') }}" class="w-full h-full object-contain transform transition-transform duration-[1.5s] group-hover:scale-[1.03]" alt="Promo Geely BSD 2">
+                        <div class="absolute inset-0 bg-pink-500/0 group-hover:bg-pink-500/10 mix-blend-overlay transition-colors duration-500"></div>
+                    </div>
+                </div>
+
+                <!-- Promo 3 -->
+                <div class="bg-white/5 backdrop-blur-xl rounded-[2.5rem] p-3 group cursor-pointer border border-white/10 shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(236,72,153,0.15)] hover:border-pink-500/50" onclick="openLightbox('{{ asset('images/banner_home-promo-01-202507-YBgjeGg2pzIW7kpk.jpg') }}', 'Booking Privilege', true)">
+                    <div class="w-full aspect-[21/9] rounded-[2rem] overflow-hidden bg-transparent flex items-center justify-center relative">
+                        <img src="{{ asset('images/banner_home-promo-01-202507-YBgjeGg2pzIW7kpk.jpg') }}" class="w-full h-full object-contain transform transition-transform duration-[1.5s] group-hover:scale-[1.03]" alt="Promo Geely BSD 3">
+                        <div class="absolute inset-0 bg-pink-500/0 group-hover:bg-pink-500/10 mix-blend-overlay transition-colors duration-500"></div>
+                    </div>
+                </div>
+
+                <!-- Promo 4 -->
+                <div class="bg-white/5 backdrop-blur-xl rounded-[2.5rem] p-3 group cursor-pointer border border-white/10 shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_20px_40px_rgba(236,72,153,0.15)] hover:border-pink-500/50" onclick="openLightbox('{{ asset('images/banner_home-promo-02-202507-YZ9Exv9eEyIq5184.jpg') }}', 'Exclusive Deals', true)">
+                    <div class="w-full aspect-[21/9] rounded-[2rem] overflow-hidden bg-transparent flex items-center justify-center relative">
+                        <img src="{{ asset('images/banner_home-promo-02-202507-YZ9Exv9eEyIq5184.jpg') }}" class="w-full h-full object-contain transform transition-transform duration-[1.5s] group-hover:scale-[1.03]" alt="Promo Geely BSD 4">
+                        <div class="absolute inset-0 bg-pink-500/0 group-hover:bg-pink-500/10 mix-blend-overlay transition-colors duration-500"></div>
+                    </div>
+                </div>
+
+            </div>
+            
         </div>
     </section>
 
