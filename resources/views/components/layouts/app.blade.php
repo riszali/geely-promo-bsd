@@ -8,20 +8,20 @@
     <link rel="icon" type="image/png" href="{{ asset('favicon.png') }}?v={{ time() }}">
     <link rel="apple-touch-icon" href="{{ asset('favicon.png') }}?v={{ time() }}">
 
-    <title>@yield('title', 'Geely Fatmawati | Innovation for Tomorrow')</title>
-    <meta name="description" content="@yield('meta_description', 'Website resmi Dealer Geely Fatmawati Jakarta Selatan. Menghadirkan kendaraan cerdas dengan teknologi masa depan.')">
-    <meta name="keywords" content="Geely Fatmawati, Geely Jakarta Selatan, Geely EX5, Geely Starray, Geely EX2, Mobil Listrik Jakarta, SUV Geely">
+    <title>@yield('title', 'Promo Geely BSD | Innovation for Tomorrow')</title>
+    <meta name="description" content="@yield('meta_description', 'Website resmi Promo Geely BSD Tangerang. Menghadirkan kendaraan cerdas dengan teknologi masa depan.')">
+    <meta name="keywords" content="Promo Geely BSD, Geely BSD, Geely Tangerang, Geely EX5, Geely Starray, Geely EX2, Mobil Listrik BSD, SUV Geely">
     <link rel="canonical" href="{{ url()->current() }}">
 
-    <meta property="og:site_name" content="Geely Fatmawati">
-    <meta property="og:title" content="@yield('title', 'Geely Fatmawati')">
-    <meta property="og:description" content="@yield('meta_description', 'Inovasi masa depan otomotif di Jakarta Selatan bersama Geely Fatmawati.')">
+    <meta property="og:site_name" content="Promo Geely BSD">
+    <meta property="og:title" content="@yield('title', 'Promo Geely BSD')">
+    <meta property="og:description" content="@yield('meta_description', 'Inovasi masa depan otomotif di BSD Tangerang bersama Promo Geely BSD.')">
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:type" content="website">
     <meta property="og:image" content="@yield('og_image', asset('images/og-default.jpg'))">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="@yield('title', 'Geely Fatmawati')">
+    <meta name="twitter:title" content="@yield('title', 'Promo Geely BSD')">
     <meta name="twitter:description" content="@yield('meta_description')">
     <meta name="twitter:image" content="@yield('og_image', asset('images/og-default.jpg'))">
 
@@ -62,7 +62,7 @@
 
     @stack('schema')
 </head>
-<body class="antialiased overflow-x-hidden bg-[#050505] text-white selection:bg-teal-500 selection:text-white">
+<body class="antialiased overflow-x-hidden bg-[#050505] text-white selection:bg-cyan-500 selection:text-white">
     
     @include('components.layouts.navbar')
 
@@ -72,7 +72,7 @@
 
     @include('components.layouts.footer')
 
-    <a href="https://wa.me/6285772087335?text=Halo%20Geely%20Fatmawati,%20saya%20tertarik%20untuk%20mengetahui%20lebih%20lanjut%20mengenai%20promo%20kendaraan%20di%20cabang%20Jakarta%20Selatan." 
+    <a href="https://wa.me/6282246666904?text=Halo%20Promo%20Geely%20BSD,%20saya%20tertarik%20untuk%20mengetahui%20lebih%20lanjut%20mengenai%20promo%20kendaraan%20di%20cabang%20BSD." 
        target="_blank" 
        rel="noopener noreferrer"
        class="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 flex items-center justify-center w-14 h-14 md:w-16 md:h-16 bg-[#25D366] text-white rounded-full shadow-[0_4px_14px_0_rgba(37,211,102,0.39)] hover:bg-[#20bd5a] transition-colors duration-300 animate-wa-pulse group"
@@ -83,7 +83,7 @@
         </svg>
 
         <div class="absolute right-full mr-4 top-1/2 -translate-y-1/2 px-4 py-2 bg-[#1a1a1a] text-white text-xs font-bold tracking-widest uppercase rounded-lg opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap border border-white/10 shadow-xl hidden md:block">
-            Hubungi Sales Fatmawati
+            Hubungi Sales BSD
         </div>
     </a>
 
