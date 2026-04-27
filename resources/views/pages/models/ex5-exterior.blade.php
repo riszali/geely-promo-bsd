@@ -1,9 +1,5 @@
 <x-layouts.app>
-    <!-- ==========================================
-         BLACK PINK GLASSMORPHISM STYLES
-    =========================================== -->
     <style>
-        /* Base Resets & Smooth Scrolling */
         html, body { 
             scroll-behavior: smooth; 
             background-color: #050505; 
@@ -13,13 +9,11 @@
             font-family: 'Inter', sans-serif;
         }
 
-        /* Safe Responsive Heights */
         .viewer-container { aspect-ratio: 16 / 9; height: auto; width: 100%; }
         @media (min-width: 768px) {
             .viewer-container { aspect-ratio: auto; height: 60vh; min-height: 500px; }
         }
 
-        /* --- DARK GLASSMORPHISM (BLACK PINK) --- */
         .glass-panel {
             background: rgba(20, 20, 25, 0.6);
             backdrop-filter: blur(24px);
@@ -32,7 +26,7 @@
 
         .glass-panel:hover {
             background: rgba(25, 25, 30, 0.8);
-            border-color: rgba(236, 72, 153, 0.5); /* Pink-500 border */
+            border-color: rgba(236, 72, 153, 0.5);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(236, 72, 153, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.1);
         }
 
@@ -56,7 +50,6 @@
             z-index: 1;
         }
 
-        /* Scroll Reveals */
         .reveal-up { opacity: 0; transform: translateY(40px); transition: all 1s cubic-bezier(0.22, 1, 0.36, 1); }
         .reveal-left { opacity: 0; transform: translateX(-40px); transition: all 1s cubic-bezier(0.22, 1, 0.36, 1); }
         .reveal-right { opacity: 0; transform: translateX(40px); transition: all 1s cubic-bezier(0.22, 1, 0.36, 1); }
@@ -66,7 +59,6 @@
         .delay-200 { transition-delay: 200ms; }
         .delay-300 { transition-delay: 300ms; }
 
-        /* Button Shimmer */
         .btn-shimmer { position: relative; overflow: hidden; border: 1px solid rgba(236, 72, 153, 0.5); }
         .btn-shimmer::after {
             content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
@@ -76,7 +68,6 @@
         }
         @keyframes shimmer { 100% { transform: rotate(45deg) translateX(100%); } }
 
-        /* Swatch Buttons */
         .swatch-btn {
             border: 2px solid rgba(255, 255, 255, 0.2) !important;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
@@ -91,7 +82,6 @@
             box-shadow: 0 0 20px rgba(236, 72, 153, 0.5);
         }
 
-        /* Dynamic Bento Grid */
         .bento-wrapper {
             display: grid;
             gap: 1rem;
@@ -130,7 +120,6 @@
         }
         .bento-card:hover img { transform: scale(1.05); }
         
-        /* Gradient Overlay for Bento Images */
         .bento-overlay {
             position: absolute; inset: 0;
             background: linear-gradient(to top, rgba(5,5,5,0.9) 0%, rgba(5,5,5,0.1) 60%, transparent 100%);
@@ -142,23 +131,15 @@
 
     <div class="w-full overflow-x-clip bg-[#050505] text-white">
 
-        <!-- ==========================================
-             SECTION 1: HERO (FULL BACKGROUND IMAGE)
-        =========================================== -->
         <section class="relative min-h-[100svh] w-full flex flex-col justify-start items-center overflow-hidden bg-[#050505] pt-20 md:pt-24 lg:pt-32 pb-12">
-            <!-- Full Background Image -->
             <div class="absolute inset-0 z-0 bg-[#050505] overflow-hidden">
-                <!-- Mobile Background -->
                 <img src="{{ asset('images/ex5-1-mobile.jpg') }}" alt="Geely EX5 Hero Mobile" class="absolute inset-0 w-full h-full object-cover md:hidden">
-                <!-- Desktop Background -->
                 <img src="{{ asset('images/ex5-1-desktop.jpg') }}" alt="Geely EX5 Hero Desktop" class="absolute inset-0 w-full h-full object-cover hidden md:block">
                 
-                <!-- Gradasi Gelap -->
                 <div class="absolute inset-x-0 top-0 h-[50%] md:h-[40%] bg-gradient-to-b from-[#050505] via-[#050505]/70 to-transparent z-10 pointer-events-none"></div>
                 <div class="absolute inset-x-0 bottom-0 h-[30%] bg-gradient-to-t from-[#050505] via-[#050505]/80 to-transparent z-10 pointer-events-none"></div>
             </div>
 
-            <!-- Konten Teks di bagian atas section -->
             <div class="relative z-20 w-full max-w-7xl mx-auto px-6 text-center">
                 <h1 class="font-geely text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white uppercase leading-[1.1] tracking-tighter drop-shadow-[0_20px_40px_rgba(236,72,153,0.3)] mb-4 reveal-up delay-100 max-w-4xl mx-auto">
                     SEE HOW <span class="text-gradient-pink">INNOVATION</span> <br> FUELS EVERY JOURNEY
@@ -170,11 +151,7 @@
             </div>
         </section>
 
-        <!-- ==========================================
-             SECTION 2: 360 EXTERIOR VIEWER
-        =========================================== -->
         <section class="py-20 md:py-32 bg-[#050505] relative z-30 overflow-hidden bg-noise-overlay border-t border-pink-500/10">
-            <!-- Ambient glow for viewer section -->
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] ambient-glow-pink pointer-events-none z-0"></div>
 
             <div class="max-w-7xl mx-auto px-4 md:px-6 relative z-10 text-center">
@@ -188,7 +165,6 @@
                     </p>
                 </div>
                 
-                <!-- Swatch Controls (Inline Background Color Maintained) -->
                 <div class="flex flex-col items-center justify-center gap-4 md:gap-6 reveal-up delay-100 relative z-30 mb-8 md:mb-10">
                     <div class="h-6">
                         <p id="active-color-name" class="text-pink-400 text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase transition-opacity duration-300 drop-shadow-[0_0_8px_rgba(236,72,153,0.6)]">Teal</p>
@@ -203,14 +179,11 @@
                     </div>
                 </div>
 
-                <!-- Viewer Display Container (Glassmorphism Dark) -->
                 <div class="glass-panel p-2 md:p-4 rounded-[2.5rem] md:rounded-[3rem] overflow-hidden reveal-up delay-200 w-full relative z-10 viewer-container group">
                     <div class="absolute inset-0 rounded-[2.5rem] bg-gradient-to-b from-white/5 to-transparent pointer-events-none z-20"></div>
                     <div class="relative w-full h-full rounded-[2rem] md:rounded-[2.5rem] overflow-hidden bg-[#0A0A0A]">
-                        <!-- Ukuran iframe dikembalikan ke 108% agar ukuran mobil kembali besar -->
                         <iframe id="iframe-exterior" src="https://riszali.sirv.com/Spins/ex5/teal.spin" class="absolute top-1/2 left-1/2 w-[108%] h-[108%] -translate-x-1/2 -translate-y-1/2 border-0 z-10" allowfullscreen></iframe>
                         
-                        <!-- Masking penutup solid & blur untuk menyembunyikan watermark Sirv tanpa merusak proporsi -->
                         <div class="absolute -bottom-2 -right-2 w-28 h-16 md:w-36 md:h-20 bg-[#0A0A0A] blur-lg z-20 pointer-events-none"></div>
                         <div class="absolute bottom-0 right-0 w-20 h-10 md:w-28 md:h-14 bg-[#0A0A0A] z-20 pointer-events-none rounded-tl-[2rem]"></div>
                     </div>
@@ -218,28 +191,19 @@
             </div>
         </section>
 
-        <!-- ==========================================
-             SECTION 3 & 4: STICKY AERODYNAMIC DESIGN
-        =========================================== -->
         <section class="relative w-full bg-[#050505] bg-noise-overlay border-y border-white/5">
-            <!-- Sticky Background Image -->
             <div class="sticky top-0 w-full h-[100vh] z-0 overflow-hidden">
                 <img src="{{ asset('images/exterior-01.webp') }}" alt="Aerodynamic Design" class="w-full h-full object-cover">
                 
-                <!-- Gradients to blend smoothly with dark theme -->
                 <div class="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#050505] to-transparent z-10"></div>
                 <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#050505] to-transparent z-10"></div>
             </div>
 
-            <!-- Scrolling Content Over the Sticky Background -->
             <div class="relative z-10 w-full">
-                <!-- Spacer panjang agar background image menempel lebih lama sebelum tertutup teks -->
                 <div class="h-[80vh] md:h-[100vh]"></div>
                 
-                <!-- Content Block (Section 4) - Dark Glass Panel -->
                 <div class="w-full max-w-7xl mx-auto px-6 pb-[30vh]">
                     <div class="glass-panel p-8 md:p-12 lg:p-16 rounded-[2.5rem] md:rounded-[3.5rem] max-w-3xl ml-auto reveal-up border-pink-500/20 shadow-[0_40px_80px_rgba(0,0,0,0.8)]">
-                        <!-- Glowing element inside card -->
                         <div class="absolute -top-10 -right-10 w-40 h-40 bg-pink-500/20 rounded-full blur-[50px] pointer-events-none"></div>
 
                         <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-pink-500/30 bg-pink-500/10 mb-6 backdrop-blur-md w-max shadow-sm relative z-10">
@@ -260,11 +224,7 @@
             </div>
         </section>
 
-        <!-- ==========================================
-             SECTION 5: EXTERIOR BENTO GALLERY 
-        =========================================== -->
         <section class="py-24 md:py-32 lg:py-40 bg-[#050505] relative z-20 overflow-hidden bg-noise-overlay border-b border-white/10">
-            <!-- Massive dark background blurs -->
             <div class="absolute top-1/2 left-0 -translate-y-1/2 w-[600px] h-[600px] ambient-glow-pink opacity-50 pointer-events-none z-0"></div>
             <div class="absolute bottom-0 right-0 w-[500px] h-[500px] ambient-glow-pink opacity-40 pointer-events-none z-0"></div>
 
@@ -278,10 +238,7 @@
                     </h2>
                 </div>
 
-                <!-- DYNAMIC BENTO WRAPPER -->
                 <div class="bento-wrapper reveal-up delay-200">
-                    
-                    <!-- Item 1 (Kiri Besar) -->
                     <div class="bento-card bento-item-1 glass-panel group">
                         <div class="absolute -top-20 -left-20 w-64 h-64 bg-pink-500/10 rounded-full blur-[60px] group-hover:bg-pink-500/20 transition-colors duration-500 pointer-events-none"></div>
                         <div class="bento-card-inner">
@@ -294,7 +251,6 @@
                         </div>
                     </div>
 
-                    <!-- Item 2 (Kanan Atas Lebar) -->
                     <div class="bento-card bento-item-2 glass-panel group">
                         <div class="bento-card-inner">
                             <img src="{{ asset('images/exterior-04.webp') }}" alt="EX5 Wheel Detail">
@@ -306,7 +262,6 @@
                         </div>
                     </div>
 
-                    <!-- Item 3 (Kanan Bawah Kiri) -->
                     <div class="bento-card bento-item-3 glass-panel group">
                         <div class="bento-card-inner">
                             <img src="{{ asset('images/exterior-03.webp') }}" alt="EX5 Panoramic Sunroof View">
@@ -318,7 +273,6 @@
                         </div>
                     </div>
 
-                    <!-- Item 4 (Kanan Bawah Kanan) -->
                     <div class="bento-card bento-item-4 glass-panel group">
                         <div class="bento-card-inner">
                             <img src="{{ asset('images/exterior-02.webp') }}" alt="EX5 Side Profile">
@@ -334,15 +288,10 @@
             </div>
         </section>
 
-        <!-- ==========================================
-             SECTION 6: DIVE INTO THE DETAILS 
-        =========================================== -->
         <section id="details" class="py-16 md:py-24 lg:py-32 relative z-30 bg-[#050505] overflow-hidden border-t border-white/5">
-            <!-- Glowing ambient background -->
             <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] ambient-glow-pink opacity-40 pointer-events-none z-0"></div>
 
             <div class="max-w-[1600px] w-full mx-auto px-4 sm:px-8 md:px-12 lg:px-16 relative z-10">
-                <!-- Header -->
                 <div class="text-center mb-12 md:mb-20 max-w-4xl mx-auto px-4 reveal-up">
                     <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-pink-500/30 bg-pink-500/10 mb-6 backdrop-blur-md shadow-sm">
                         <span class="text-pink-400 text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase">The Blueprint</span>
@@ -357,10 +306,8 @@
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start relative z-10">
                     
-                    <!-- Left: Navigation Link Cards -->
                     <div class="order-2 lg:order-1 lg:col-span-7 flex flex-col gap-4 reveal-left w-full">
                         
-                        <!-- Card Exterior -->
                         <a href="{{ route('models.ex5.exterior') }}" class="relative w-full h-[120px] sm:h-[160px] lg:h-[200px] rounded-[1.5rem] overflow-hidden group block glass-panel p-2 hover:-translate-y-1 transition-all duration-500">
                             <div class="relative w-full h-full rounded-[1rem] overflow-hidden">
                                 <img src="https://assets.zyrosite.com/Yle46KEPN6IkVONg/exterior-01-m2Wq42Nv3lFqrP1L.webp" alt="Geely EX5 Exterior" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-[1.5s] ease-out z-0">
@@ -377,7 +324,6 @@
                             </div>
                         </a>
 
-                        <!-- Card Interior -->
                         <a href="{{ route('models.ex5.interior') }}" class="relative w-full h-[120px] sm:h-[160px] lg:h-[200px] rounded-[1.5rem] overflow-hidden group block glass-panel p-2 hover:-translate-y-1 transition-all duration-500">
                             <div class="relative w-full h-full rounded-[1rem] overflow-hidden">
                                 <img src="https://assets.zyrosite.com/Yle46KEPN6IkVONg/geely-ex5-interior-6-yd0bq7dwjki2vqwz-mp84nv1zw8hwGV83.jpg" alt="Geely EX5 Interior" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-[1.5s] ease-out z-0 mirror-rhd">
@@ -394,7 +340,6 @@
                             </div>
                         </a>
 
-                        <!-- Card Specification -->
                         <a href="{{ route('models.ex5.specification') }}" class="relative w-full h-[120px] sm:h-[160px] lg:h-[200px] rounded-[1.5rem] overflow-hidden group block glass-panel p-2 hover:-translate-y-1 transition-all duration-500">
                             <div class="relative w-full h-full rounded-[1rem] overflow-hidden">
                                 <img src="https://assets.zyrosite.com/Yle46KEPN6IkVONg/ied-tF2sW5R0UW8pMCMV.webp" alt="Geely EX5 Specification" class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-[1.5s] ease-out z-0">
@@ -413,12 +358,9 @@
 
                     </div>
 
-                    <!-- Right: Dimensions Box -->
                     <div class="order-1 lg:order-2 lg:col-span-5 flex flex-col gap-8 reveal-right delay-200 w-full">
                         
-                        <!-- Dimensions Box (Dark Theme Glassmorphism) -->
                         <div class="glass-panel p-6 md:p-8 flex flex-col relative overflow-hidden group rounded-[2rem] hover:border-pink-500/50">
-                            <!-- Background glow dalam kotak -->
                             <div class="absolute top-0 right-0 w-32 h-32 bg-pink-500/20 rounded-full blur-[50px] group-hover:bg-pink-500/30 transition-colors duration-500 pointer-events-none"></div>
 
                             <h4 class="text-white font-geely text-2xl md:text-3xl mb-1 relative z-10">Dimensions</h4>
@@ -443,13 +385,11 @@
                                 </div>
                             </div>
 
-                            <!-- Sketch Image (Invert untuk background gelap) -->
                             <div class="w-full relative mt-8 opacity-80 group-hover:opacity-100 transition-opacity duration-500 z-10 mix-blend-screen">
                                 <img src="https://assets.zyrosite.com/Yle46KEPN6IkVONg/sketch-ex5-1-r25s8xkUhZrQbzAj.webp" alt="Geely EX5 Sketch" loading="lazy" class="w-full h-auto object-contain invert">
                             </div>
                         </div>
 
-                        <!-- Action Buttons -->
                         <div class="flex flex-col gap-3 w-full relative z-10">
                             <a href="{{ route('models.ex5.specification') }}" class="btn-shimmer w-full py-4 md:py-5 rounded-full bg-pink-500 text-white font-bold text-[10px] md:text-xs tracking-[0.2em] uppercase text-center hover:scale-[1.02] hover:bg-pink-600 transition-all duration-300 shadow-[0_10px_20px_rgba(236,72,153,0.3)]">
                                 Show Full Specs
@@ -474,13 +414,9 @@
 
     </div>
 
-    <!-- ==========================================
-         SCRIPTS 
-    =========================================== -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             
-            /* Intersection Observer for Scroll Reveals */
             const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
             const revealObserver = new IntersectionObserver((entries, observer) => {
                 entries.forEach(entry => {
@@ -493,26 +429,21 @@
             
             document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right').forEach(el => revealObserver.observe(el));
 
-            /* 360 Viewer Swatch Logic */
             const frameExt = document.getElementById('iframe-exterior');
             const colorNameDisplay = document.getElementById('active-color-name');
             const swatchesExt = document.querySelectorAll('.swatch-btn');
 
             swatchesExt.forEach(swatch => {
                 swatch.addEventListener('click', () => {
-                    // Remove active from all
                     swatchesExt.forEach(s => s.classList.remove('active'));
-                    // Add active to clicked
                     swatch.classList.add('active');
                     
-                    // Update Text Name with fade
                     colorNameDisplay.style.opacity = 0;
                     setTimeout(() => {
                         colorNameDisplay.textContent = swatch.getAttribute('data-name');
                         colorNameDisplay.style.opacity = 1;
                     }, 150);
                     
-                    // Update Iframe Source
                     frameExt.src = swatch.getAttribute('data-src');
                 });
             });
