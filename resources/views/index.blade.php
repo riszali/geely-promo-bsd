@@ -249,8 +249,8 @@
                             'name' => 'Geely EX5',
                             'type' => 'Premium Smart SUV',
                             'desc' => 'Arsitektur elektrik canggih dengan efisiensi tata ruang maksimal untuk keluarga modern.',
-                            'stat1' => '495m', 'stat1_lbl' => 'Range',
-                            'stat2' => 'GEA', 'stat2_lbl' => Geely Electric Architecture',
+                            'stat1' => '495km', 'stat1_lbl' => 'Range',
+                            'stat2' => 'GEA', 'stat2_lbl' => 'Geely Electric Architecture',
                             'img' => 'https://assets.zyrosite.com/Yle46KEPN6IkVONg/exterior-01-7JRFy88F1zfhn2Fx.webp',
                             'link' => '/models/ex5',
                             'delay' => ''
