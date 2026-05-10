@@ -259,8 +259,8 @@
                             'name' => 'Geely EX2',
                             'type' => 'Urban Crossover',
                             'desc' => 'Desain kompak nan agresif, solusi sempurna menembus dinamika BSD City.',
-                            'stat1' => '30min', 'stat1_lbl' => 'Fast Charge',
-                            'stat2' => 'Agile', 'stat2_lbl' => 'Dynamics',
+                            'stat1' => '395km', 'stat1_lbl' => 'Range',
+                            'stat2' => 'GEA', 'stat2_lbl' => 'Geely Electric Architecture',
                             'img' => 'https://assets.zyrosite.com/Yle46KEPN6IkVONg/geely-ex2-highlight-mP43QkLzBRHoaLz3.jpg',
                             'link' => '/models/ex2',
                             'delay' => 'delay-100'
