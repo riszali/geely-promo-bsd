@@ -835,15 +835,15 @@
                 <div data-slider class="flex overflow-x-auto overscroll-x-contain hide-scrollbar snap-x snap-mandatory gap-4 md:gap-6 pt-4 pb-12 px-4 md:px-0 -mx-4 md:mx-0 scroll-smooth">
                     @php
                         $customers = [
-                            'images/customer/cs1.jpeg',
-                            'images/customer/cs2.jpeg',
+                            'images/customer/cs8.jpeg',
+                            'images/customer/cs9.jpeg',
                             'images/customer/cs3.jpeg',
                             'images/customer/cs4.jpeg',
                             'images/customer/cs5.jpeg',
                             'images/customer/cs6.jpeg',
                             'images/customer/cs7.jpeg',
-                            'images/customer/cs7.jpeg',
-                            'images/customer/cs7.jpeg',
+                            'images/customer/cs1.jpeg',
+                            'images/customer/cs2.jpeg',
                         ];
                     @endphp
 
