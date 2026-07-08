@@ -842,6 +842,8 @@
                             'images/customer/cs5.jpeg',
                             'images/customer/cs6.jpeg',
                             'images/customer/cs7.jpeg',
+                            'images/customer/cs7.jpeg',
+                            'images/customer/cs7.jpeg',
                         ];
                     @endphp
 
