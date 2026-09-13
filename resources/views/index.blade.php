@@ -189,8 +189,7 @@
                     
                     <div class="lg:col-span-7 flex flex-col items-start">
                         <div class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-sky-500/40 bg-sky-950/40 mb-6 backdrop-blur-md shadow-inner">
-                            <span class="w-2.5 h-2.5 rounded-full bg-cyan-400 shadow-[0_0_10px_#22d3ee] animate-pulse"></span>
-                            <span class="text-sky-300 text-[10px] md:text-xs font-bold tracking-[0.25em] uppercase">Promo Geely BSD Tangerang</span>
+
                         </div>
 
                         <h1 class="font-geely text-5xl sm:text-6xl md:text-7xl lg:text-[88px] text-white uppercase leading-[0.92] tracking-tighter mb-6 drop-shadow-lg">
