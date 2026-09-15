@@ -123,10 +123,6 @@
                 <div class="absolute inset-0 bg-pink-50/10 mix-blend-overlay"></div>
 
                 <div class="relative z-10">
-                    <div class="inline-flex items-center gap-2 mb-6 px-4 py-2 rounded-full border border-pink-200 bg-white/80 backdrop-blur-md shadow-sm">
-                        <span class="w-2 h-2 rounded-full bg-pink-500 animate-pulse"></span>
-                        <span class="text-[9px] font-bold tracking-[0.3em] uppercase text-pink-600">Geely BSD Booking</span>
-                    </div>
                     <h1 class="font-geely text-3xl sm:text-4xl lg:text-[40px] text-gray-900 font-bold uppercase tracking-tight leading-[1.1]">
                         Experience<br><span class="text-gradient-pink">The Future.</span>
                     </h1>
@@ -145,6 +141,7 @@
             <div class="w-full lg:w-7/12 p-8 md:p-12 bg-white/40 backdrop-blur-xl border-l border-white/60">
                 
                 <form id="testDriveForm" class="space-y-8">
+                    @csrf
                     
                     <!-- Pilihan Model -->
                     <div class="space-y-4">
@@ -208,7 +205,7 @@
                     </div>
 
                     <div class="pt-6">
-                        <button type="submit" id="submitBtn" class="w-full relative group overflow-hidden rounded-full bg-pink-500 py-4 sm:py-5 px-6 transition-all duration-500 hover:bg-pink-600 hover:shadow-[0_15px_30px_rgba(236,72,153,0.3)] shadow-[0_10px_20px_rgba(236,72,153,0.2)]">
+                        <button type="submit" id="submitBtn" class="w-full relative group overflow-hidden rounded-full bg-pink-500 py-4 sm:py-5 px-6 transition-all duration-500 hover:bg-pink-600 hover:shadow-[0_15px_30px_rgba(236,72,153,0.3)] shadow-[0_10px_20px_rgba(236,72,153,0.2)] cursor-pointer">
                             <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
                             
                             <span class="relative z-10 flex justify-center items-center gap-3 text-white font-bold text-xs sm:text-sm tracking-[0.2em] uppercase transition-colors">
@@ -228,9 +225,9 @@
                     </div>
                     <h3 class="font-geely text-2xl sm:text-3xl text-gray-900 mb-3 tracking-wide">Pemesanan Diluncurkan.</h3>
                     <p class="text-gray-600 text-sm leading-relaxed max-w-sm mx-auto mb-8">
-                        Silakan periksa WhatsApp Anda. Pesan booking telah disiapkan untuk dikirim ke tim Geely BSD.
+                        Silakan periksa WhatsApp Anda. Data reservasi Anda telah terhubung ke CRM dealer dan pesan booking telah disiapkan.
                     </p>
-                    <button onclick="window.location.reload()" class="px-8 py-3 rounded-full bg-white border border-gray-200 text-gray-700 text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-gray-50 hover:text-pink-600 hover:border-pink-200 transition-all duration-300 shadow-sm">
+                    <button onclick="window.location.reload()" class="px-8 py-3 rounded-full bg-white border border-gray-200 text-gray-700 text-[10px] font-bold tracking-[0.2em] uppercase hover:bg-gray-50 hover:text-pink-600 hover:border-pink-200 transition-all duration-300 shadow-sm cursor-pointer">
                         Kembali
                     </button>
                 </div>
@@ -311,20 +308,19 @@
             const dateInput = document.getElementById('prefDate');
             if(dateInput) dateInput.setAttribute('min', today);
 
-            // Handle Form Submission
-            form.addEventListener('submit', function(e) {
+            // Handle Form Submission: Send to Laravel CRM first, then trigger WhatsApp
+            form.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 
-                const name = document.getElementById('fullName').value;
-                const phone = document.getElementById('phoneNumber').value;
+                const name = document.getElementById('fullName').value.trim();
+                const phone = document.getElementById('phoneNumber').value.trim();
                 const date = document.getElementById('prefDate').value;
                 const time = document.getElementById('prefTime').value;
                 const modelValue = document.querySelector('input[name="car_model"]:checked').value;
                 const modelLabel = db_visuals[modelValue].title;
+                const scheduledAt = `${date} ${time}`;
                 
-                // Konfirmasi nomor WA +62 822-4666-6904
-                const targetWA = "6282246666904";
-                
+                const targetWA = "6281295443338";
                 const message = `Halo Promo Geely BSD,\n\nSaya ingin melakukan *Test Drive*:\n\n` +
                                 `*Model:* ${modelLabel}\n` +
                                 `*Nama:* ${name}\n` +
@@ -340,19 +336,44 @@
                             <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                             <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                         </svg>
-                        Membuka WhatsApp...
+                        Mencatat & Menghubungkan...
                     </span>
                 `;
                 btn.disabled = true;
                 btn.classList.add('opacity-80', 'cursor-not-allowed');
 
+                // 1. Simpan ke database CRM Laravel via AJAX
+                try {
+                    const csrfToken = document.querySelector('input[name="_token"]')?.value || '{{ csrf_token() }}';
+                    
+                    await fetch("{{ route('test-drive.submit') }}", {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json',
+                            'X-CSRF-TOKEN': csrfToken
+                        },
+                        body: JSON.stringify({
+                            name: name,
+                            phone: phone,
+                            car_model: modelLabel,
+                            scheduled_at: scheduledAt,
+                            venue: 'Showroom Geely BSD City'
+                        })
+                    });
+                } catch (err) {
+                    console.warn('CRM dispatch logged fallback:', err);
+                }
+
+                // 2. Buka tab WhatsApp ke nomor sales resmi
                 window.open(waUrl, '_blank');
 
+                // 3. Tampilkan pesan sukses asli
                 setTimeout(() => {
                     form.style.display = 'none';
                     successMsg.classList.remove('hidden');
                     successMsg.classList.add('flex');
-                }, 800);
+                }, 600);
             });
         });
     </script>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DeliveryMoment;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -12,7 +13,12 @@ class PageController extends Controller
      */
     public function index(): View
     {
-        return view('index');
+        // Ambil data momen serah terima aktif dari database
+        $deliveryMoments = DeliveryMoment::orderBy('display_order', 'asc')
+            ->latest()
+            ->get();
+
+        return view('index', compact('deliveryMoments'));
     }
 
     /**
@@ -20,7 +26,7 @@ class PageController extends Controller
      */
     public function discover(): View
     {
-        return view('index');
+        return $this->index();
     }
 
     /**
@@ -105,7 +111,6 @@ class PageController extends Controller
 
     /**
      * Halaman Detail Interior Model Geely Starray EM-i
-     * Fix: Menambahkan method yang sebelumnya menyebabkan error
      */
     public function starrayInterior(): View
     {

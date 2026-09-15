@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\PublicLeadController;
+use App\Http\Controllers\Admin\CrmController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -78,5 +80,56 @@ Route::get('/credit-simulation', [PageController::class, 'creditSimulation'])->n
 
 // Rute dinonaktifkan karena kita menggunakan file sitemap.xml statis di folder public
 // Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
+
+
+// =============================================================
+// HANDLER FORM PUBLIK KE DATABASE CRM
+// =============================================================
+
+Route::post('/test-drive', [PublicLeadController::class, 'storeTestDrive'])->name('test-drive.submit');
+Route::post('/credit-simulation', [PublicLeadController::class, 'storeCreditSimulation'])->name('credit-simulation.submit');
+
+
+// =============================================================
+// PROMO GEELY BSD - EXECUTIVE CRM & DEALER COMMAND CENTER
+// =============================================================
+
+Route::prefix('admin/crm')->name('admin.crm.')->group(function () {
+    
+    // Auth Dealer
+    Route::middleware('guest')->group(function () {
+        Route::get('/login', [CrmController::class, 'showLogin'])->name('login');
+        Route::post('/login', [CrmController::class, 'authenticate'])->name('authenticate');
+    });
+
+    // CRM Protected Area
+    Route::middleware('auth')->group(function () {
+        Route::post('/logout', [CrmController::class, 'logout'])->name('logout');
+
+        // Cockpit Dashboard
+        Route::get('/dashboard', [CrmController::class, 'dashboard'])->name('dashboard');
+
+        // Sales Pipeline & Prospek
+        Route::get('/pipeline', [CrmController::class, 'pipeline'])->name('pipeline');
+        Route::post('/leads', [CrmController::class, 'storeLead'])->name('leads.store');
+        Route::patch('/leads/{lead}/stage', [CrmController::class, 'updateStage'])->name('leads.updateStage');
+        Route::delete('/leads/{lead}', [CrmController::class, 'destroyLead'])->name('leads.destroy');
+        Route::get('/leads/export', [CrmController::class, 'exportCsv'])->name('leads.export');
+
+        // Test Drive Schedule
+        Route::get('/test-drives', [CrmController::class, 'testDrives'])->name('testdrives.index');
+        Route::post('/test-drives', [CrmController::class, 'storeTestDrive'])->name('testdrives.store');
+        Route::patch('/test-drives/{testDrive}/status', [CrmController::class, 'updateTestDriveStatus'])->name('testdrives.updateStatus');
+
+        // Simulasi Kredit Prospek
+        Route::get('/credit-leads', [CrmController::class, 'creditLeads'])->name('creditleads.index');
+        Route::patch('/credit-leads/{creditSimulation}/status', [CrmController::class, 'updateCreditStatus'])->name('creditleads.updateStatus');
+
+        // Manajemen Galeri Delivery Moments
+        Route::get('/delivery-moments', [CrmController::class, 'deliveryMoments'])->name('deliverymoments.index');
+        Route::post('/delivery-moments', [CrmController::class, 'storeDeliveryMoment'])->name('deliverymoments.store');
+        Route::delete('/delivery-moments/{deliveryMoment}', [CrmController::class, 'destroyDeliveryMoment'])->name('deliverymoments.destroy');
+    });
+});
 
 // End of file

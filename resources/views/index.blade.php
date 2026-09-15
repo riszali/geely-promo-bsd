@@ -817,7 +817,11 @@
 
                 <div data-slider class="flex overflow-x-auto overscroll-x-contain hide-scrollbar snap-x snap-mandatory gap-4 md:gap-6 pt-4 pb-12 px-4 md:px-0 -mx-4 md:mx-0 scroll-smooth">
                     @php
-                        $customers = [
+                        // Jika ada data unggahan admin di database, pakai data database.
+                        // Jika belum ada foto diupload, pakai 15 foto default bawaan folder images/customer.
+                        $hasDbMoments = isset($deliveryMoments) && $deliveryMoments->isNotEmpty();
+                        
+                        $defaultPhotos = [
                             'images/customer/cs10.jpeg',
                             'images/customer/cs11.jpeg',
                             'images/customer/cs12.jpeg',
@@ -836,15 +840,36 @@
                         ];
                     @endphp
 
-                    @foreach($customers as $index => $img)
-                    @php $delayClass = $index % 3 == 0 ? 'delay-100' : ($index % 3 == 1 ? 'delay-200' : 'delay-300'); @endphp
-                    <div class="flex-shrink-0 w-[75vw] sm:w-[45vw] md:w-[30vw] lg:w-[22vw] snap-center glass-panel-light rounded-[1.8rem] p-2.5 group cursor-pointer reveal-up {{ $delayClass }}" onclick="openLightbox('{{ asset($img) }}', 'Delivery Moment {{ $index + 1 }}', true)">
-                        <div class="relative w-full aspect-[4/5] rounded-[1.3rem] overflow-hidden img-container bg-slate-200">
-                            <img src="{{ asset($img) }}" alt="Customer Geely BSD {{ $index + 1 }}" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105">
-                            <div class="absolute inset-0 bg-sky-500/10 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        </div>
-                    </div>
-                    @endforeach
+                    @if($hasDbMoments)
+                        @foreach($deliveryMoments as $index => $item)
+                            @php 
+                                $delayClass = $index % 3 == 0 ? 'delay-100' : ($index % 3 == 1 ? 'delay-200' : 'delay-300');
+                                $imgSrc = $item->image_url;
+                                $caption = $item->caption ?: 'Momen Serah Terima ' . ($index + 1);
+                            @endphp
+                            <div class="flex-shrink-0 w-[75vw] sm:w-[45vw] md:w-[30vw] lg:w-[22vw] snap-center glass-panel-light rounded-[1.8rem] p-2.5 group cursor-pointer reveal-up {{ $delayClass }}" onclick="openLightbox('{{ $imgSrc }}', '{{ addslashes($caption) }}', true)">
+                                <div class="relative w-full aspect-[4/5] rounded-[1.3rem] overflow-hidden img-container bg-slate-200">
+                                    <img src="{{ $imgSrc }}" alt="{{ $caption }}" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105">
+                                    <div class="absolute inset-0 bg-sky-500/10 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                </div>
+                                @if($item->caption)
+                                <div class="p-2 text-center">
+                                    <p class="text-xs font-bold text-slate-800 truncate">{{ $item->caption }}</p>
+                                </div>
+                                @endif
+                            </div>
+                        @endforeach
+                    @else
+                        @foreach($defaultPhotos as $index => $img)
+                            @php $delayClass = $index % 3 == 0 ? 'delay-100' : ($index % 3 == 1 ? 'delay-200' : 'delay-300'); @endphp
+                            <div class="flex-shrink-0 w-[75vw] sm:w-[45vw] md:w-[30vw] lg:w-[22vw] snap-center glass-panel-light rounded-[1.8rem] p-2.5 group cursor-pointer reveal-up {{ $delayClass }}" onclick="openLightbox('{{ asset($img) }}', 'Delivery Moment {{ $index + 1 }}', true)">
+                                <div class="relative w-full aspect-[4/5] rounded-[1.3rem] overflow-hidden img-container bg-slate-200">
+                                    <img src="{{ asset($img) }}" alt="Customer Geely BSD {{ $index + 1 }}" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105">
+                                    <div class="absolute inset-0 bg-sky-500/10 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
                 </div>
             </div>
 
