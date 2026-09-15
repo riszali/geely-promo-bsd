@@ -126,31 +126,31 @@
                 </div>
             @endif
 
-            <!-- Header Info Banner -->
-            <div class="glass-island rounded-3xl p-6 md:p-8 relative overflow-hidden">
-                <div class="absolute -right-20 -top-20 w-80 h-80 bg-sky-600/15 rounded-full blur-3xl pointer-events-none"></div>
+            <!-- Header Info Banner (Clean White Theme) -->
+            <div class="bg-white rounded-3xl p-6 md:p-8 relative overflow-hidden border border-slate-200 shadow-xl">
+                <div class="absolute -right-20 -top-20 w-80 h-80 bg-sky-100/70 rounded-full blur-3xl pointer-events-none"></div>
                 <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
                     <div>
-                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-950/80 border border-sky-500/30 text-cyan-300 text-[10px] font-bold tracking-widest uppercase mb-3">
-                            <svg class="w-3.5 h-3.5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-50 border border-sky-200 text-sky-700 text-[10px] font-bold tracking-widest uppercase mb-3 shadow-sm">
+                            <svg class="w-3.5 h-3.5 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"></path></svg>
                             <span>Content Marketing & Google Organic Traffic</span>
                         </div>
-                        <h1 class="text-2xl md:text-3xl font-extrabold uppercase tracking-tight text-white font-geely">
-                            Pusat Artikel & <span class="text-gradient-cyan">SEO Mesin Pencari</span>
+                        <h1 class="text-2xl md:text-3xl font-extrabold uppercase tracking-tight text-slate-900 font-geely">
+                            Pusat Artikel & <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-cyan-500">SEO Mesin Pencari</span>
                         </h1>
-                        <p class="text-slate-400 text-xs md:text-sm mt-1 max-w-2xl">
+                        <p class="text-slate-600 text-xs md:text-sm mt-1 max-w-2xl leading-relaxed">
                             Kelola konten promo dealer, artikel ulasan Geely EX5 & EX2, serta panduan perawatan EV. Dilengkapi generator Meta Tag otomatis, pratinjau SERP Google real-time, dan microdata JSON-LD untuk peringkat pencarian teratas di BSD & Tangerang.
                         </p>
                     </div>
 
                     <div class="flex flex-wrap gap-3">
-                        <div class="p-3.5 rounded-2xl bg-slate-900/90 border border-slate-800 text-center min-w-[120px]">
-                            <span class="text-[10px] uppercase font-bold text-slate-400 block">Total Artikel</span>
-                            <span class="text-xl font-mono font-bold text-cyan-300">{{ $articles->total() }}</span>
+                        <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/90 text-center min-w-[125px] shadow-sm">
+                            <span class="text-[10px] uppercase font-bold text-slate-500 block">Total Artikel</span>
+                            <span class="text-2xl font-mono font-extrabold text-sky-600">{{ $articles->total() }}</span>
                         </div>
-                        <div class="p-3.5 rounded-2xl bg-slate-900/90 border border-slate-800 text-center min-w-[120px]">
-                            <span class="text-[10px] uppercase font-bold text-slate-400 block">Status Tayang</span>
-                            <span class="text-xl font-mono font-bold text-emerald-400">{{ \App\Models\Article::where('is_published', true)->count() }}</span>
+                        <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/90 text-center min-w-[125px] shadow-sm">
+                            <span class="text-[10px] uppercase font-bold text-slate-500 block">Status Tayang</span>
+                            <span class="text-2xl font-mono font-extrabold text-emerald-600">{{ \App\Models\Article::where('is_published', true)->count() }}</span>
                         </div>
                     </div>
                 </div>
