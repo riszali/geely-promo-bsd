@@ -8,10 +8,12 @@ use App\Models\TestDrive;
 use App\Models\CreditSimulation;
 use App\Models\WebsiteVisit;
 use App\Models\DeliveryMoment;
+use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Illuminate\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\JsonResponse;
@@ -394,6 +396,135 @@ class CrmController extends Controller
         $deliveryMoment->delete();
 
         return back()->with('info', "Foto [{$caption}] berhasil dihapus dari galeri serah terima.");
+    }
+
+    /**
+     * Menampilkan halaman manajemen artikel di CRM.
+     */
+    public function articles(): View
+    {
+        $articles = Article::latest('published_at')
+            ->latest()
+            ->paginate(10);
+
+        $activeTestDrives = TestDrive::whereIn('status', ['Pending', 'Confirmed'])->count();
+        $pendingCredit = CreditSimulation::whereIn('status', ['Baru', 'Proses Survey'])->count();
+
+        return view('admin.articles', compact('articles', 'activeTestDrives', 'pendingCredit'));
+    }
+
+    /**
+     * Menyimpan artikel baru dari admin.
+     */
+    public function storeArticle(Request $request): RedirectResponse
+    {
+        $validated = $request->validate([
+            'title'            => ['required', 'string', 'max:255'],
+            'category'         => ['required', 'string', 'max:100'],
+            'excerpt'          => ['nullable', 'string', 'max:500'],
+            'content'          => ['required', 'string'],
+            'author'           => ['nullable', 'string', 'max:150'],
+            'thumbnail'        => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp', 'max:51200'], // Maks 50MB
+            'is_published'     => ['nullable', 'boolean'],
+            'meta_title'       => ['nullable', 'string', 'max:255'],
+            'meta_description' => ['nullable', 'string', 'max:500'],
+            'meta_keywords'    => ['nullable', 'string', 'max:255'],
+            'canonical_url'    => ['nullable', 'url', 'max:255'],
+        ]);
+
+        $thumbnailPath = null;
+        if ($request->hasFile('thumbnail')) {
+            $thumbnailPath = $request->file('thumbnail')->store('articles', 'public');
+        }
+
+        $slug = Str::slug($validated['title']);
+        $originalSlug = $slug;
+        $counter = 1;
+        while (Article::where('slug', $slug)->exists()) {
+            $slug = "{$originalSlug}-" . $counter++;
+        }
+
+        $isPublished = $request->boolean('is_published', true);
+
+        Article::create([
+            'title'            => $validated['title'],
+            'slug'             => $slug,
+            'category'         => $validated['category'],
+            'excerpt'          => $validated['excerpt'] ?: Str::limit(strip_tags($validated['content']), 160),
+            'content'          => $validated['content'],
+            'author'           => $validated['author'] ?: (Auth::user()->name ?? 'Tim Promo Geely BSD'),
+            'thumbnail_path'   => $thumbnailPath,
+            'is_published'     => $isPublished,
+            'published_at'     => $isPublished ? now() : null,
+            'meta_title'       => $validated['meta_title'] ?? null,
+            'meta_description' => $validated['meta_description'] ?? null,
+            'meta_keywords'    => $validated['meta_keywords'] ?? null,
+            'canonical_url'    => $validated['canonical_url'] ?? null,
+        ]);
+
+        return back()->with('success', "Artikel '{$validated['title']}' berhasil dibuat lengkap dengan metadata SEO!");
+    }
+
+    /**
+     * Memperbarui artikel yang sudah ada.
+     */
+    public function updateArticle(Request $request, Article $article): RedirectResponse
+    {
+        $validated = $request->validate([
+            'title'            => ['required', 'string', 'max:255'],
+            'category'         => ['required', 'string', 'max:100'],
+            'excerpt'          => ['nullable', 'string', 'max:500'],
+            'content'          => ['required', 'string'],
+            'author'           => ['nullable', 'string', 'max:150'],
+            'thumbnail'        => ['nullable', 'image', 'mimes:jpeg,png,jpg,webp', 'max:51200'],
+            'is_published'     => ['nullable', 'boolean'],
+            'meta_title'       => ['nullable', 'string', 'max:255'],
+            'meta_description' => ['nullable', 'string', 'max:500'],
+            'meta_keywords'    => ['nullable', 'string', 'max:255'],
+            'canonical_url'    => ['nullable', 'url', 'max:255'],
+        ]);
+
+        if ($request->hasFile('thumbnail')) {
+            if ($article->thumbnail_path && Storage::disk('public')->exists($article->thumbnail_path)) {
+                Storage::disk('public')->delete($article->thumbnail_path);
+            }
+            $article->thumbnail_path = $request->file('thumbnail')->store('articles', 'public');
+        }
+
+        $isPublished = $request->boolean('is_published', true);
+
+        $article->title = $validated['title'];
+        $article->category = $validated['category'];
+        $article->excerpt = $validated['excerpt'] ?: Str::limit(strip_tags($validated['content']), 160);
+        $article->content = $validated['content'];
+        $article->author = $validated['author'] ?: $article->author;
+        $article->meta_title = $validated['meta_title'] ?? null;
+        $article->meta_description = $validated['meta_description'] ?? null;
+        $article->meta_keywords = $validated['meta_keywords'] ?? null;
+        $article->canonical_url = $validated['canonical_url'] ?? null;
+        
+        if (!$article->is_published && $isPublished && !$article->published_at) {
+            $article->published_at = now();
+        }
+        $article->is_published = $isPublished;
+        $article->save();
+
+        return back()->with('success', "Artikel '{$article->title}' dan konfigurasi SEO berhasil diperbarui.");
+    }
+
+    /**
+     * Menghapus artikel dari database dan storage.
+     */
+    public function destroyArticle(Article $article): RedirectResponse
+    {
+        if ($article->thumbnail_path && Storage::disk('public')->exists($article->thumbnail_path)) {
+            Storage::disk('public')->delete($article->thumbnail_path);
+        }
+
+        $title = $article->title;
+        $article->delete();
+
+        return back()->with('info', "Artikel '{$title}' berhasil dihapus.");
     }
 
     /**

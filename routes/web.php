@@ -73,6 +73,8 @@ Route::get('/contact', [PageController::class, 'contact'])->name('contact');
 
 Route::get('/credit-simulation', [PageController::class, 'creditSimulation'])->name('credit-simulation');
 
+Route::get('/articles/{slug}', [PageController::class, 'articleDetail'])->name('articles.show');
+
 
 // =============================================================
 // SEO & XML SITEMAP
@@ -129,6 +131,12 @@ Route::prefix('admin/crm')->name('admin.crm.')->group(function () {
         Route::get('/delivery-moments', [CrmController::class, 'deliveryMoments'])->name('deliverymoments.index');
         Route::post('/delivery-moments', [CrmController::class, 'storeDeliveryMoment'])->name('deliverymoments.store');
         Route::delete('/delivery-moments/{deliveryMoment}', [CrmController::class, 'destroyDeliveryMoment'])->name('deliverymoments.destroy');
+
+        // Manajemen Artikel & Berita
+        Route::get('/articles', [CrmController::class, 'articles'])->name('articles.index');
+        Route::post('/articles', [CrmController::class, 'storeArticle'])->name('articles.store');
+        Route::put('/articles/{article}', [CrmController::class, 'updateArticle'])->name('articles.update');
+        Route::delete('/articles/{article}', [CrmController::class, 'destroyArticle'])->name('articles.destroy');
     });
 });
 

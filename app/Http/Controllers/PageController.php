@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DeliveryMoment;
+use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -18,7 +19,12 @@ class PageController extends Controller
             ->latest()
             ->get();
 
-        return view('index', compact('deliveryMoments'));
+        // Ambil artikel terpublikasi terbaru (maks 3 artikel teratas)
+        $latestArticles = Article::published()
+            ->take(3)
+            ->get();
+
+        return view('index', compact('deliveryMoments', 'latestArticles'));
     }
 
     /**
@@ -147,5 +153,26 @@ class PageController extends Controller
     public function creditSimulation(): View
     {
         return view('pages.credit-simulation');
+    }
+
+    /**
+     * Halaman Detail Baca Artikel Berita Geely BSD
+     */
+    public function articleDetail(string $slug): View
+    {
+        $article = Article::where('slug', $slug)
+            ->where('is_published', true)
+            ->firstOrFail();
+
+        // Tambah counter pembaca artikel
+        $article->increment('views_count');
+
+        // Rekomendasi artikel terkait lainnya
+        $relatedArticles = Article::published()
+            ->where('id', '!=', $article->id)
+            ->take(3)
+            ->get();
+
+        return view('pages.article-detail', compact('article', 'relatedArticles'));
     }
 }

@@ -967,6 +967,75 @@
         </div>
     </section>
 
+        @php
+        $hasArticles = isset($latestArticles) && $latestArticles->isNotEmpty();
+    @endphp
+
+    @if($hasArticles)
+    <section id="articles-section" class="py-24 lg:py-32 relative bg-[#f8fafc] overflow-hidden border-t border-slate-200">
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] ambient-glow-masculine opacity-40 pointer-events-none z-0"></div>
+        <div class="absolute bottom-0 left-0 w-[500px] h-[500px] ambient-glow-masculine opacity-30 pointer-events-none z-0"></div>
+
+        <div class="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 relative z-10">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 md:mb-18 gap-6 reveal-up">
+                <div>
+                    <span class="text-sky-700 text-[11px] font-bold tracking-[0.4em] uppercase block mb-3">News & Updates</span>
+                    <h2 class="font-geely text-4xl sm:text-5xl md:text-6xl uppercase tracking-tighter text-slate-950 leading-none">
+                        Wawasan & <span class="text-sky-600">Berita Terbaru</span>
+                    </h2>
+                </div>
+                <p class="text-slate-600 text-sm md:text-base font-normal max-w-md">
+                    Informasi resmi seputar promo mobil listrik Geely, ulasan fitur cerdas, dan inovasi mobilitas ramah lingkungan di BSD City.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                @foreach($latestArticles as $index => $article)
+                @php 
+                    $delayClass = $index % 3 == 0 ? 'delay-100' : ($index % 3 == 1 ? 'delay-200' : 'delay-300');
+                @endphp
+                <article class="glass-island rounded-[2.5rem] p-4 flex flex-col justify-between group cursor-pointer reveal-up {{ $delayClass }} border border-slate-200 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+                    <div>
+                        <a href="{{ route('articles.show', $article->slug) }}" class="block relative w-full aspect-[16/10] rounded-[2rem] overflow-hidden img-container bg-slate-200 mb-5">
+                            <img src="{{ $article->thumbnail_url }}" alt="{{ $article->title }}" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105">
+                            <div class="absolute top-4 left-4 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-slate-200 text-sky-700 text-[10px] font-bold uppercase tracking-widest">
+                                {{ $article->category }}
+                            </div>
+                        </a>
+
+                        <div class="px-3 pb-2">
+                            <div class="flex items-center gap-3 text-[11px] text-slate-500 font-mono mb-2">
+                                <span>{{ $article->published_at ? $article->published_at->format('d M Y') : '-' }}</span>
+                                <span>&bull;</span>
+                                <span>{{ $article->reading_time }} mnt baca</span>
+                            </div>
+
+                            <h3 class="font-geely text-xl md:text-2xl text-slate-950 uppercase tracking-tight group-hover:text-sky-600 transition-colors line-clamp-2 leading-snug mb-3">
+                                <a href="{{ route('articles.show', $article->slug) }}">
+                                    {{ $article->title }}
+                                </a>
+                            </h3>
+
+                            <p class="text-slate-600 text-xs md:text-sm font-normal leading-relaxed line-clamp-3 mb-6">
+                                {{ $article->excerpt }}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="px-3 pt-4 border-t border-slate-100 flex items-center justify-between">
+                        <span class="text-xs text-slate-500 font-medium">Oleh: {{ $article->author }}</span>
+                        <a href="{{ route('articles.show', $article->slug) }}" class="inline-flex items-center gap-1.5 text-xs font-bold text-sky-700 group-hover:text-sky-600 uppercase tracking-wider">
+                            <span>Baca Selengkapnya</span>
+                            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+                </article>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    @endif
+
     <div id="lightbox" class="fixed inset-0 hidden items-center justify-center bg-slate-950/92 backdrop-blur-2xl opacity-0 transition-opacity duration-300" style="z-index: 9999;" onclick="closeLightbox(event)">
         <button onclick="closeLightbox(event)" class="absolute top-6 right-6 md:top-10 md:right-10 text-slate-400 hover:text-cyan-400 transition-colors bg-slate-900/90 p-2.5 rounded-full border border-slate-700 shadow-lg hover:border-cyan-400 cursor-pointer" style="z-index: 10000;">
             <svg class="w-7 h-7 md:w-8 md:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
