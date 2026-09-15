@@ -95,14 +95,12 @@ class CrmController extends Controller
             'starray' => $totalLeads > 0 ? round(($modelCounts['starray'] / $totalLeads) * 100) : 0,
         ];
 
-        // ========================================================================
-        // ANALITIK KUNJUNGAN WEBSITE HARIAN (REAL DATABASE METRICS)
-        // ========================================================================
+        // Analitik kunjungan website harian
         $todayVisitsCount = WebsiteVisit::whereDate('visit_date', today())->count();
         $todayUniqueVisitors = WebsiteVisit::whereDate('visit_date', today())->distinct('ip_address')->count('ip_address');
         $totalWebsiteVisits = WebsiteVisit::count();
 
-        // Siapkan tren kunjungan 14 hari terakhir untuk grafik Chart.js
+        // Tren kunjungan 14 hari terakhir untuk Chart.js
         $chartDates = [];
         $chartViews = [];
         $chartUnique = [];
@@ -113,24 +111,21 @@ class CrmController extends Controller
             $label = $date->translatedFormat('d M');
 
             $chartDates[] = $label;
-            
-            // Total hits / pageviews
             $viewsOnDate = WebsiteVisit::whereDate('visit_date', $dateString)->count();
             $chartViews[] = $viewsOnDate;
 
-            // Pengunjung unik (Unique IP)
             $uniqueOnDate = WebsiteVisit::whereDate('visit_date', $dateString)->distinct('ip_address')->count('ip_address');
             $chartUnique[] = $uniqueOnDate;
         }
 
-        // Halaman Terpopuler yang Paling Banyak Dikunjungi
+        // Halaman Terpopuler
         $topPages = WebsiteVisit::select('page_title', 'path', DB::raw('count(*) as total_views'))
             ->groupBy('page_title', 'path')
             ->orderByDesc('total_views')
             ->take(5)
             ->get();
 
-        // Distribusi Perangkat Pengunjung (Mobile vs Desktop)
+        // Distribusi Perangkat Pengunjung
         $mobileVisits = WebsiteVisit::where('device_type', 'Mobile')->count();
         $desktopVisits = WebsiteVisit::where('device_type', 'Desktop')->count();
         $tabletVisits = WebsiteVisit::where('device_type', 'Tablet')->count();
@@ -141,16 +136,13 @@ class CrmController extends Controller
             'tablet'  => round(($tabletVisits / $totalDeviceVisits) * 100),
         ];
 
-        // 8 Prospek Terkini Masuk
         $recentLeads = Lead::with('consultant')->latest()->take(8)->get();
 
-        // Reservasi Test Drive Terdekat Riil
         $upcomingTestDrives = TestDrive::with('lead')
             ->orderBy('scheduled_at', 'desc')
             ->take(5)
             ->get();
 
-        // 5 Pengajuan Simulasi Kredit Terkini Riil
         $recentCreditSimulations = CreditSimulation::with('lead')
             ->latest()
             ->take(5)
@@ -180,7 +172,7 @@ class CrmController extends Controller
     }
 
     /**
-     * Tampilan Sales Pipeline Kanban dengan Filter Model Unit.
+     * Tampilan Sales Pipeline Kanban.
      */
     public function pipeline(Request $request): View
     {
@@ -200,7 +192,6 @@ class CrmController extends Controller
             'won'         => $allLeads->where('stage', 'won'),
         ];
 
-        // Hitung count badge untuk navbar konsisten antar modul
         $activeTestDrives = TestDrive::whereIn('status', ['Pending', 'Confirmed'])->count();
         $pendingCredit = CreditSimulation::whereIn('status', ['Baru', 'Proses Survey'])->count();
 
@@ -208,7 +199,7 @@ class CrmController extends Controller
     }
 
     /**
-     * Menyimpan prospek baru ke dalam sistem CRM.
+     * Menyimpan prospek baru.
      */
     public function storeLead(Request $request): RedirectResponse
     {
@@ -234,7 +225,7 @@ class CrmController extends Controller
     }
 
     /**
-     * Memperbarui tahapan kanban prospek (Mendukung AJAX & Form Request).
+     * Memperbarui tahapan kanban prospek.
      */
     public function updateStage(Request $request, Lead $lead): JsonResponse|RedirectResponse
     {
@@ -270,7 +261,7 @@ class CrmController extends Controller
     }
 
     /**
-     * Menampilkan daftar reservasi test drive unit BSD.
+     * Menampilkan daftar reservasi test drive.
      */
     public function testDrives(): View
     {
@@ -365,12 +356,12 @@ class CrmController extends Controller
     }
 
     /**
-     * Mengunggah foto serah terima baru ke server dan database.
+     * Mengunggah foto serah terima baru ke server dan database (Maksimal 50MB).
      */
     public function storeDeliveryMoment(Request $request): RedirectResponse
     {
         $request->validate([
-            'photo'         => ['required', 'image', 'mimes:jpeg,png,jpg,webp', 'max:10240'], // Maks 10MB
+            'photo'         => ['required', 'image', 'mimes:jpeg,png,jpg,webp', 'max:51200'], // Maks 50MB (51200 KB)
             'caption'       => ['nullable', 'string', 'max:255'],
             'display_order' => ['nullable', 'integer', 'min:0'],
         ]);
@@ -395,7 +386,6 @@ class CrmController extends Controller
      */
     public function destroyDeliveryMoment(DeliveryMoment $deliveryMoment): RedirectResponse
     {
-        // Hapus file fisik jika tersimpan di disk public storage
         if (Storage::disk('public')->exists($deliveryMoment->image_path)) {
             Storage::disk('public')->delete($deliveryMoment->image_path);
         }
