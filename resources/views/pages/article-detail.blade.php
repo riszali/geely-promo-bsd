@@ -23,34 +23,37 @@
     <meta name="twitter:image" content="{{ $article->thumbnail_url }}">
 
     <!-- Schema.org JSON-LD for Google Rich Snippets & News -->
+    @php
+        $schemaData = [
+            '@context' => 'https://schema.org',
+            '@type' => 'NewsArticle',
+            'mainEntityOfPage' => [
+                '@type' => 'WebPage',
+                '@id' => route('articles.show', $article->slug)
+            ],
+            'headline' => $article->title,
+            'description' => $article->seo_description,
+            'image' => [
+                $article->thumbnail_url
+            ],
+            'datePublished' => $article->published_at ? $article->published_at->toIso8601String() : $article->created_at->toIso8601String(),
+            'dateModified' => $article->updated_at ? $article->updated_at->toIso8601String() : now()->toIso8601String(),
+            'author' => [
+                '@type' => 'Person',
+                'name' => $article->author
+            ],
+            'publisher' => [
+                '@type' => 'Organization',
+                'name' => 'Promo Geely BSD Tangerang',
+                'logo' => [
+                    '@type' => 'ImageObject',
+                    'url' => asset('images/footer-logos-geely.png')
+                ]
+            ]
+        ];
+    @endphp
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "{{ route('articles.show', $article->slug) }}"
-      },
-      "headline": "{{ addslashes($article->title) }}",
-      "description": "{{ addslashes($article->seo_description) }}",
-      "image": [
-        "{{ $article->thumbnail_url }}"
-      ],
-      "datePublished": "{{ $article->published_at ? $article->published_at->toIso8601String() : $article->created_at->toIso8601String() }}",
-      "dateModified": "{{ $article->updated_at->toIso8601String() }}",
-      "author": {
-        "@type": "Person",
-        "name": "{{ addslashes($article->author) }}"
-      },
-      "publisher": {
-        "@type": "Organization",
-        "name": "Promo Geely BSD Tangerang",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "{{ asset('images/footer-logos-geely.png') }}"
-        }
-      }
-    }
+    {!! json_encode($schemaData, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT) !!}
     </script>
     @endpush
 
@@ -112,7 +115,7 @@
 
         <div class="max-w-4xl mx-auto relative z-10 space-y-10">
             
-            <!-- Breadcrumbs with Schema Microdata -->
+            <!-- Breadcrumbs with Clean Link Structure -->
             <nav class="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-slate-500" aria-label="Breadcrumb">
                 <a href="{{ route('home') }}" class="hover:text-sky-600 transition-colors">Beranda</a>
                 <span>&rsaquo;</span>
@@ -158,7 +161,7 @@
                         <p class="text-slate-300 text-xs md:text-sm max-w-md">Jadwalkan test drive mobil Geely EX5, EX2, atau Starray EM-i bersama tim sales resmi kami di BSD.</p>
                     </div>
                     <div class="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
-                        <a href="{{ route('test-drive') }}" class="btn-stealth px-6 py-3.5 rounded-full text-xs font-bold uppercase tracking-wider text-cyan-300 hover:text-white text-center whitespace-nowrap">
+                        <a href="{{ route('test-drive') }}" class="px-6 py-3.5 rounded-full bg-slate-800 hover:bg-slate-700 text-cyan-300 font-bold uppercase tracking-wider text-xs text-center whitespace-nowrap transition-colors">
                             Book Test Drive
                         </a>
                         <a href="https://wa.me/6281295443338?text={{ rawurlencode('Halo Promo Geely BSD, saya baru saja membaca artikel ' . $article->title . '. Boleh minta informasi promo terbarunya?') }}" target="_blank" class="px-6 py-3.5 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-slate-950 text-xs font-bold uppercase tracking-wider text-center whitespace-nowrap">
@@ -169,7 +172,7 @@
             </div>
 
             <!-- Related Articles -->
-            @if(isset($relatedArticles) && $relatedArticles->isNotEmpty())
+            @if(isset($relatedArticles) && count($relatedArticles) > 0)
             <div class="pt-10">
                 <h3 class="font-geely text-2xl uppercase tracking-tight text-slate-950 mb-6">Artikel Terkait Lainnya</h3>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">

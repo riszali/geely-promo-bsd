@@ -19,8 +19,8 @@
                     G
                 </div>
                 <div class="sidebar-text flex flex-col transition-opacity duration-200 whitespace-nowrap">
-                    <span class="font-extrabold tracking-tight text-white uppercase text-sm leading-none font-geely">Promo Geely BSD</span>
-                    <span class="text-[9px] text-cyan-400 font-semibold tracking-wider uppercase mt-0.5">Dealer Command</span>
+                    <span class="font-bold tracking-tight text-white text-sm leading-none">Promo Geely BSD</span>
+                    <span class="text-[10px] text-cyan-400 font-semibold mt-0.5">Admin CRM</span>
                 </div>
             </a>
 
@@ -47,11 +47,11 @@
             <!-- 1. Cockpit Dashboard -->
             <a href="{{ route('admin.crm.dashboard') }}" 
                class="flex items-center gap-3 px-3.5 py-2.5 rounded-2xl text-xs font-semibold transition-all group relative {{ $currentRoute === 'admin.crm.dashboard' ? 'bg-sky-950/80 text-cyan-300 border border-sky-500/50 shadow-sm' : 'text-slate-400 hover:text-white hover:bg-slate-900/60' }}"
-               title="Cockpit Dashboard">
+               title="Dashboard">
                 <svg class="w-4 h-4 flex-shrink-0 {{ $currentRoute === 'admin.crm.dashboard' ? 'text-cyan-400' : 'text-slate-400 group-hover:text-cyan-300' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
                 </svg>
-                <span class="sidebar-text whitespace-nowrap">Cockpit Overview</span>
+                <span class="sidebar-text whitespace-nowrap">Dashboard</span>
             </a>
 
             <!-- 2. Sales Pipeline Kanban -->

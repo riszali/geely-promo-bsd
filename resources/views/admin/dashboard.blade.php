@@ -86,8 +86,8 @@
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
                 </button>
                 <div>
-                    <h1 class="font-extrabold tracking-tight text-white uppercase text-sm md:text-base leading-none font-geely">Cockpit Control</h1>
-                    <span class="text-[10px] text-slate-400 tracking-wider">Executive Overview Dealership BSD City</span>
+                    <h1 class="font-bold text-white text-sm md:text-base leading-none">Dashboard</h1>
+                    <span class="text-[11px] text-slate-400">Ringkasan Penjualan & Operasional Showroom BSD</span>
                 </div>
             </div>
 
@@ -129,15 +129,15 @@
                 <div class="absolute -right-20 -top-20 w-80 h-80 bg-sky-600/15 rounded-full blur-3xl pointer-events-none"></div>
                 <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
                     <div>
-                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-950/80 border border-sky-500/30 text-cyan-300 text-[10px] font-bold tracking-widest uppercase mb-3">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-950/80 border border-sky-500/30 text-cyan-300 text-[10px] font-bold tracking-wider uppercase mb-3">
                             <svg class="w-3.5 h-3.5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
-                            <span>Dealership Command BSD</span>
+                            <span>Geely BSD City</span>
                         </div>
-                        <h2 class="text-2xl md:text-4xl font-extrabold uppercase tracking-tight text-white font-geely">
-                            Executive <span class="text-gradient-cyan">Cockpit Control</span>
+                        <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-white">
+                            Ringkasan <span class="text-gradient-cyan">Penjualan & Aktivitas</span>
                         </h2>
                         <p class="text-slate-400 text-xs md:text-sm mt-1 max-w-xl">
-                            Monitor prospek penjualan, armada test drive BSD, permohonan kredit leasing, serta conversion closing rate secara real-time.
+                            Pantau prospek masuk, jadwal test drive, pengajuan simulasi kredit, dan tren kunjungan website showroom.
                         </p>
                     </div>
                     
