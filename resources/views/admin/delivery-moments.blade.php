@@ -145,16 +145,16 @@
                             <label class="block font-bold uppercase tracking-wider text-slate-300 mb-2">Pilih File Foto (Resolusi Bebas / Max 50MB)</label>
                             
                             <!-- Container Dropzone -->
-                            <div id="dropzone-box" class="border-2 border-dashed border-slate-700 hover:border-cyan-500/60 rounded-2xl p-4 sm:p-5 text-center transition-all bg-slate-900/60 relative overflow-hidden flex flex-col items-center justify-center min-h-[140px]">
+                            <div id="dropzone-box" class="border-2 border-dashed border-slate-300 hover:border-cyan-500 rounded-2xl p-4 sm:p-5 text-center transition-all bg-white relative overflow-hidden flex flex-col items-center justify-center min-h-[140px] shadow-sm">
                                 
                                 <!-- File input covering area when no file selected -->
                                 <input type="file" name="photo" id="photo-input" required accept="image/*" class="absolute inset-0 opacity-0 cursor-pointer w-full h-full z-10" onchange="previewSelectedImage(this)">
                                 
                                 <!-- Placeholder initial state -->
                                 <div id="upload-placeholder" class="py-2">
-                                    <svg class="w-9 h-9 sm:w-10 sm:h-10 text-slate-500 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                    <p class="text-white font-semibold text-xs sm:text-sm">Klik atau seret foto ke sini</p>
-                                    <p class="text-[10px] sm:text-[11px] text-cyan-400 mt-1">Format: JPG, JPEG, PNG, WEBP (Maks 50MB)</p>
+                                    <svg class="w-9 h-9 sm:w-10 sm:h-10 text-slate-400 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                    <p class="text-slate-800 font-bold text-xs sm:text-sm">Klik atau seret foto ke sini</p>
+                                    <p class="text-[10px] sm:text-[11px] text-cyan-600 font-semibold mt-1">Format: JPG, JPEG, PNG, WEBP (Maks 50MB)</p>
                                 </div>
 
                                 <!-- Preview state: bounded height with change/remove actions -->
@@ -171,9 +171,9 @@
                                     
                                     <div class="flex items-center justify-between gap-2 px-1">
                                         <div class="text-left overflow-hidden text-ellipsis whitespace-nowrap">
-                                            <p class="text-[11px] text-cyan-300 font-mono font-medium truncate max-w-[200px] sm:max-w-xs" id="upload-filename"></p>
+                                            <p class="text-[11px] text-slate-700 font-mono font-medium truncate max-w-[200px] sm:max-w-xs" id="upload-filename"></p>
                                         </div>
-                                        <button type="button" onclick="resetSelectedPhoto()" class="text-[10px] font-bold text-rose-400 hover:text-rose-300 uppercase tracking-wider underline cursor-pointer shrink-0">
+                                        <button type="button" onclick="resetSelectedPhoto()" class="text-[10px] font-bold text-rose-500 hover:text-rose-600 uppercase tracking-wider underline cursor-pointer shrink-0">
                                             Hapus Pilihan
                                         </button>
                                     </div>
@@ -185,13 +185,13 @@
                         <div>
                             <label class="block font-bold uppercase tracking-wider text-slate-300 mb-1.5">Keterangan / Nama Konsumen</label>
                             <input type="text" name="caption" placeholder="Contoh: Serah Terima Geely EX5 - Bpk. Hendra" 
-                                   class="w-full px-3.5 py-2.5 sm:py-3 bg-slate-900 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 text-xs">
+                                   class="w-full px-3.5 py-2.5 sm:py-3 bg-white border border-slate-300 rounded-xl text-slate-900 font-medium placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-xs shadow-sm transition-all">
                         </div>
 
                         <div>
                             <label class="block font-bold uppercase tracking-wider text-slate-300 mb-1.5">Urutan Prioritas (Opsional)</label>
                             <input type="number" name="display_order" value="0" min="0" placeholder="0" 
-                                   class="w-full px-3.5 py-2.5 sm:py-3 bg-slate-900 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 text-xs">
+                                   class="w-full px-3.5 py-2.5 sm:py-3 bg-white border border-slate-300 rounded-xl text-slate-900 font-medium placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-xs shadow-sm transition-all">
                             <p class="text-[10px] text-slate-500 mt-1">Angka lebih kecil tampil di urutan terdepan.</p>
                         </div>
 
