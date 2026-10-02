@@ -252,9 +252,82 @@
                         @endforelse
                     </div>
 
-                    <!-- Pagination Links -->
-                    <div class="mt-6 sm:mt-8">
-                        {{ $moments->links() }}
+                    <!-- Custom Styled Dark Pagination Links -->
+                    <div class="mt-8 pt-6 border-t border-slate-800/80">
+                        @if ($moments->hasPages())
+                            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                                <!-- Counter Info -->
+                                <div class="text-[11px] sm:text-xs text-slate-400 order-2 sm:order-1 text-center sm:text-left">
+                                    Menampilkan <span class="font-semibold text-cyan-400 font-mono">{{ $moments->firstItem() ?? 0 }}</span> - <span class="font-semibold text-cyan-400 font-mono">{{ $moments->lastItem() ?? 0 }}</span> dari total <span class="font-semibold text-white font-mono">{{ $moments->total() }}</span> foto
+                                </div>
+
+                                <!-- Pagination Buttons -->
+                                <nav role="navigation" aria-label="Pagination" class="flex items-center gap-1.5 order-1 sm:order-2 flex-wrap justify-center">
+                                    {{-- Previous Page Link --}}
+                                    @if ($moments->onFirstPage())
+                                        <span class="px-3 py-1.5 rounded-xl bg-slate-900/50 border border-slate-800/70 text-slate-600 text-xs font-semibold cursor-not-allowed select-none">
+                                            &laquo; Prev
+                                        </span>
+                                    @else
+                                        <a href="{{ $moments->previousPageUrl() }}" class="px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700/80 hover:border-cyan-400 text-slate-300 hover:text-white text-xs font-semibold transition-all shadow-sm">
+                                            &laquo; Prev
+                                        </a>
+                                    @endif
+
+                                    {{-- Numbered Page Links (Window of +/- 2 pages around current page) --}}
+                                    @php
+                                        $start = max(1, $moments->currentPage() - 2);
+                                        $end = min($moments->lastPage(), $moments->currentPage() + 2);
+                                    @endphp
+
+                                    @if ($start > 1)
+                                        <a href="{{ $moments->url(1) }}" class="w-8 h-8 rounded-xl bg-slate-900 border border-slate-700/80 hover:border-cyan-400 text-slate-300 hover:text-white text-xs font-semibold flex items-center justify-center transition-all">
+                                            1
+                                        </a>
+                                        @if ($start > 2)
+                                            <span class="text-slate-600 px-1 text-xs">...</span>
+                                        @endif
+                                    @endif
+
+                                    @foreach ($moments->getUrlRange($start, $end) as $page => $url)
+                                        @if ($page == $moments->currentPage())
+                                            <span class="w-8 h-8 rounded-xl bg-gradient-to-r from-cyan-500 to-sky-500 text-slate-950 font-extrabold text-xs flex items-center justify-center shadow-lg shadow-cyan-500/30">
+                                                {{ $page }}
+                                            </span>
+                                        @else
+                                            <a href="{{ $url }}" class="w-8 h-8 rounded-xl bg-slate-900 border border-slate-700/80 hover:border-cyan-400 text-slate-300 hover:text-white text-xs font-semibold flex items-center justify-center transition-all">
+                                                {{ $page }}
+                                            </a>
+                                        @endif
+                                    @endforeach
+
+                                    @if ($end < $moments->lastPage())
+                                        @if ($end < $moments->lastPage() - 1)
+                                            <span class="text-slate-600 px-1 text-xs">...</span>
+                                        @endif
+                                        <a href="{{ $moments->url($moments->lastPage()) }}" class="w-8 h-8 rounded-xl bg-slate-900 border border-slate-700/80 hover:border-cyan-400 text-slate-300 hover:text-white text-xs font-semibold flex items-center justify-center transition-all">
+                                            {{ $moments->lastPage() }}
+                                        </a>
+                                    @endif
+
+                                    {{-- Next Page Link --}}
+                                    @if ($moments->hasMorePages())
+                                        <a href="{{ $moments->nextPageUrl() }}" class="px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700/80 hover:border-cyan-400 text-slate-300 hover:text-white text-xs font-semibold transition-all shadow-sm">
+                                            Next &raquo;
+                                        </a>
+                                    @else
+                                        <span class="px-3 py-1.5 rounded-xl bg-slate-900/50 border border-slate-800/70 text-slate-600 text-xs font-semibold cursor-not-allowed select-none">
+                                            Next &raquo;
+                                        </span>
+                                    @endif
+                                </nav>
+                            </div>
+                        @else
+                            {{-- Tampilan saat data foto muat dalam 1 halaman --}}
+                            <div class="text-[11px] sm:text-xs text-slate-500 text-center sm:text-left">
+                                Menampilkan semua <span class="font-semibold text-cyan-400 font-mono">{{ $moments->total() }}</span> foto serah terima.
+                            </div>
+                        @endif
                     </div>
                 </div>
 
