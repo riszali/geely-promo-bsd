@@ -57,7 +57,7 @@
             transform: translateY(-1px);
         }
 
-        /* Custom scrollbar for better aesthetics */
+        /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
             height: 8px;
@@ -74,7 +74,10 @@
         }
     </style>
 </head>
-<body class="min-h-screen flex bg-[#070a12] text-slate-100 selection:bg-cyan-500 selection:text-white antialiased">
+<body class="min-h-screen flex bg-[#070a12] text-slate-100 selection:bg-cyan-500 selection:text-white antialiased relative">
+
+    <!-- Mobile Backdrop Overlay for Sidebar -->
+    <div id="mobile-sidebar-backdrop" onclick="toggleSidebarMobile(event)" class="fixed inset-0 z-40 bg-black/80 backdrop-blur-sm hidden transition-opacity duration-300 lg:hidden"></div>
 
     <!-- Include Reusable Consistent Sidebar -->
     @include('admin.partials.sidebar')
@@ -85,8 +88,11 @@
         <!-- Header Navigation Bar -->
         <header class="sticky top-0 z-30 bg-[#090e18]/95 backdrop-blur-2xl border-b border-slate-800/80 px-4 lg:px-8 py-3.5 flex items-center justify-between gap-4">
             <div class="flex items-center gap-3">
-                <button type="button" onclick="toggleSidebarMobile()" class="lg:hidden p-2 rounded-xl bg-slate-900 border border-slate-700 text-slate-300 hover:text-white focus:outline-none">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                <!-- Hamburger Menu Button with Robust Mobile Event Handler -->
+                <button type="button" id="mobile-menu-btn" onclick="toggleSidebarMobile(event)" aria-label="Buka Menu Navigasi" class="lg:hidden p-2 rounded-xl bg-slate-900 border border-slate-700 text-slate-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-cyan-500 active:scale-95 transition-all cursor-pointer relative z-30">
+                    <svg class="w-5 h-5 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
                 </button>
                 <div>
                     <div class="flex items-center gap-2">
@@ -130,7 +136,7 @@
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
                 
-                <!-- Left Form: Unggah Foto Baru (Sticky hanya di Layar Desktop lg ke atas) -->
+                <!-- Left Form: Unggah Foto Baru -->
                 <div class="lg:col-span-5 glass-island p-5 sm:p-6 md:p-8 rounded-3xl relative lg:sticky lg:top-24 z-10">
                     <div class="mb-5 sm:mb-6">
                         <span class="text-[10px] font-bold tracking-widest uppercase text-cyan-400 block mb-1">Upload Media</span>
@@ -144,7 +150,7 @@
                         <div>
                             <label class="block font-bold uppercase tracking-wider text-slate-300 mb-2">Pilih File Foto (Resolusi Bebas / Max 50MB)</label>
                             
-                            <!-- Container Dropzone -->
+                            <!-- Container Dropzone Putih Bersih -->
                             <div id="dropzone-box" class="border-2 border-dashed border-slate-300 hover:border-cyan-500 rounded-2xl p-4 sm:p-5 text-center transition-all bg-white relative overflow-hidden flex flex-col items-center justify-center min-h-[140px] shadow-sm">
                                 
                                 <!-- File input covering area when no file selected -->
@@ -274,7 +280,7 @@
                                         </a>
                                     @endif
 
-                                    {{-- Numbered Page Links (Window of +/- 2 pages around current page) --}}
+                                    {{-- Numbered Page Links --}}
                                     @php
                                         $start = max(1, $moments->currentPage() - 2);
                                         $end = min($moments->lastPage(), $moments->currentPage() + 2);
@@ -323,7 +329,6 @@
                                 </nav>
                             </div>
                         @else
-                            {{-- Tampilan saat data foto muat dalam 1 halaman --}}
                             <div class="text-[11px] sm:text-xs text-slate-500 text-center sm:text-left">
                                 Menampilkan semua <span class="font-semibold text-cyan-400 font-mono">{{ $moments->total() }}</span> foto serah terima.
                             </div>
@@ -359,6 +364,70 @@
         let currentDeleteFormId = null;
 
         /**
+         * Comprehensive and Robust Mobile Sidebar Toggle
+         * Compatible with all common sidebar ID variants, CSS translations, and display states
+         */
+        function toggleSidebarMobile(e) {
+            if (e && e.preventDefault) e.preventDefault();
+
+            // 1. Locate sidebar element through possible IDs or semantic tag
+            const sidebar = document.getElementById('admin-sidebar') 
+                         || document.getElementById('sidebar') 
+                         || document.getElementById('main-sidebar') 
+                         || document.querySelector('aside');
+            
+            const backdrop = document.getElementById('mobile-sidebar-backdrop');
+
+            if (sidebar) {
+                // If sidebar uses the Tailwind translate class pattern
+                const isTranslated = sidebar.classList.contains('-translate-x-full');
+                const isHidden = sidebar.classList.contains('hidden');
+
+                if (isTranslated) {
+                    sidebar.classList.remove('-translate-x-full');
+                    sidebar.classList.add('translate-x-0');
+                } else if (sidebar.classList.contains('translate-x-0')) {
+                    sidebar.classList.remove('translate-x-0');
+                    sidebar.classList.add('-translate-x-full');
+                } else {
+                    sidebar.classList.toggle('-translate-x-full');
+                }
+
+                // If sidebar also relies on 'hidden' class on mobile
+                if (isHidden) {
+                    sidebar.classList.remove('hidden');
+                }
+
+                // Ensure sidebar stays above other elements when opened
+                sidebar.classList.add('z-50');
+
+                // Toggle Backdrop Visibility
+                if (backdrop) {
+                    const isOpenNow = !sidebar.classList.contains('-translate-x-full') && !sidebar.classList.contains('hidden');
+                    if (isOpenNow) {
+                        backdrop.classList.remove('hidden');
+                        document.body.classList.add('overflow-hidden');
+                    } else {
+                        backdrop.classList.add('hidden');
+                        document.body.classList.remove('overflow-hidden');
+                    }
+                }
+            }
+
+            // Dispatch global event for any external partial listeners
+            window.dispatchEvent(new CustomEvent('toggle-admin-sidebar'));
+        }
+
+        // Close sidebar if viewport is resized to desktop (lg)
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 1024) {
+                const backdrop = document.getElementById('mobile-sidebar-backdrop');
+                if (backdrop) backdrop.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            }
+        });
+
+        /**
          * Render preview of the selected image file
          */
         function previewSelectedImage(input) {
@@ -378,11 +447,11 @@
                     if (placeholder) placeholder.classList.add('hidden');
                     if (previewWrapper) previewWrapper.classList.remove('hidden');
 
-                    // Nonaktifkan click-through dropzone cover agar tombol ganti foto dan hapus foto bisa diklik
+                    // Allow clicks to pass to change and remove buttons
                     input.classList.remove('inset-0', 'w-full', 'h-full');
                     input.classList.add('w-0.5', 'h-0.5', 'opacity-0');
 
-                    // Otomatis scroll halus sedikit ke arah tombol submit jika layar sempit
+                    // Auto-scroll slightly toward publish button on mobile
                     if (window.innerWidth < 1024) {
                         setTimeout(() => {
                             const btnSubmit = document.getElementById('btn-submit-upload');
@@ -444,16 +513,6 @@
                 if (targetForm) targetForm.submit();
             }
         });
-
-        /**
-         * Sidebar toggle fallback for mobile
-         */
-        function toggleSidebarMobile() {
-            const sidebar = document.getElementById('admin-sidebar');
-            if (sidebar) {
-                sidebar.classList.toggle('-translate-x-full');
-            }
-        }
     </script>
 </body>
 </html>
