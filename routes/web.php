@@ -139,5 +139,3 @@ Route::prefix('admin/crm')->name('admin.crm.')->group(function () {
         Route::delete('/articles/{article}', [CrmController::class, 'destroyArticle'])->name('articles.destroy');
     });
 });
-
-// End of file
